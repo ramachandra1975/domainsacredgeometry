@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sacred Geometry & Vedic Mathematics | culturalmusings.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#c5a059;--gold-l:#e2c98a;--gold-d:#8a6010;
+  --navy:#0f2240;--navy2:#1a365d;
+  --cream:#fdfaf5;--cream2:#f5efe3;
+  --ink:#1a1208;--muted:#5a4a2a;
+  --border:rgba(197,160,89,0.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',serif;background:#fff;color:var(--ink);overflow-x:hidden;font-size:17px;line-height:1.85}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:3px;color:var(--navy2);text-decoration:none}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 80px;position:relative;overflow:hidden}
+.hero-yantra{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.05;pointer-events:none}
+.hero-tag{font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;position:relative;z-index:1}
+#hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:400;color:#fff;line-height:1.05;margin-bottom:12px;position:relative;z-index:1}
+#hero h1 em{color:var(--gold);font-style:italic}
+#hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.5rem);color:rgba(255,255,255,.65);max-width:680px;line-height:1.7;margin:0 auto 48px;position:relative;z-index:1}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1}
+.hs{text-align:center}
+.hs-n{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--gold);line-height:1;display:block}
+.hs-l{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
+.scroll-hint{position:absolute;bottom:2rem;font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:3px;color:rgba(255,255,255,.3);text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* SECTION */
+.section{max-width:1200px;margin:0 auto;padding:90px 40px}
+.s-label{display:block;font-family:'Montserrat',sans-serif;font-size:0.64rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);color:var(--navy2);font-weight:400;line-height:1.1;margin-bottom:32px}
+.s-title em{color:var(--gold);font-style:italic}
+.s-intro{font-size:1.1rem;color:var(--muted);line-height:1.9;max-width:820px;margin-bottom:48px}
+
+/* DOMAIN NAV PILLS */
+.domain-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:60px;padding:20px;background:var(--cream);border:1px solid var(--border)}
+.dn-pill{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:8px 16px;border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .2s;cursor:pointer}
+.dn-pill:hover,.dn-pill.active{background:var(--gold);color:#fff;border-color:var(--gold)}
+
+/* ══ SUBDOMAIN 1: SRI YANTRA ══ */
+#sri-yantra{background:var(--navy)}
+.sy-inner{max-width:1200px;margin:0 auto;padding:90px 40px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.sy-text{}
+.sy-text .s-label{color:var(--gold-l)}
+.sy-text .s-title{color:#fff}
+.sy-text .s-title em{color:var(--gold)}
+.sy-text p{font-size:1.05rem;color:rgba(255,255,255,.7);line-height:1.9;margin-bottom:18px}
+.sy-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.sy-fact{border:1px solid rgba(197,160,89,.3);padding:16px 18px}
+.sy-fact .fn{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold);line-height:1;display:block}
+.sy-fact .fl{font-family:'Montserrat',sans-serif;font-size:0.56rem;letter-spacing:2px;color:rgba(255,255,255,.5);text-transform:uppercase}
+.sy-diagram{display:flex;flex-direction:column;align-items:center;gap:20px}
+.sy-layers{display:flex;flex-direction:column;gap:8px;width:100%;max-width:360px}
+.sy-layer{display:flex;align-items:center;gap:12px;padding:10px 16px;border:1px solid rgba(197,160,89,.2);cursor:pointer;transition:all .2s}
+.sy-layer:hover{border-color:var(--gold);background:rgba(197,160,89,.06)}
+.sy-layer-num{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);width:32px;flex-shrink:0}
+.sy-layer-name{font-family:'Montserrat',sans-serif;font-size:0.64rem;letter-spacing:1.5px;color:rgba(255,255,255,.8);text-transform:uppercase}
+.sy-layer-desc{font-size:0.82rem;color:rgba(255,255,255,.5);margin-top:2px}
+
+/* ══ SUBDOMAIN 2: VASTU ══ */
+#vastu{background:var(--cream)}
+.vastu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-top:40px}
+.vastu-card{background:#fff;border:1px solid rgba(197,160,89,.25);padding:28px;position:relative;transition:all .3s}
+.vastu-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.07);border-color:var(--gold)}
+.vc-dir{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy2);margin-bottom:6px}
+.vc-dev{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:block}
+.vc-deity{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--muted);margin-bottom:8px}
+.vc-element{font-size:0.88rem;color:#888}
+.vastu-center-card{grid-column:1/-1;background:var(--navy2);color:#fff;padding:28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.vastu-center-card .vc-dir{color:var(--gold)}
+.vastu-center-card .vc-deity,.vastu-center-card .vc-element{color:rgba(255,255,255,.7)}
+
+/* ══ SUBDOMAIN 3: 16 SUTRAS ══ */
+#vedic-math{background:#fff}
+.sutras-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2px;border:1px solid var(--border);margin-top:40px}
+.sutra-card{padding:28px 30px;border-right:none;border-bottom:1px solid var(--border);background:#fff;transition:all .3s;cursor:pointer}
+.sutra-card:hover{background:var(--cream);transform:translateX(6px)}
+.sc-num{font-family:'Playfair Display',serif;font-size:2.2rem;color:rgba(197,160,89,.2);float:right;line-height:1;margin-top:-4px}
+.sc-name{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--navy2);margin-bottom:4px}
+.sc-sanskrit{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--gold);margin-bottom:10px;display:block}
+.sc-meaning{font-size:0.92rem;color:var(--muted);line-height:1.6;margin-bottom:10px}
+.sc-example{font-family:'Montserrat',sans-serif;font-size:0.7rem;background:var(--navy2);color:var(--gold-l);padding:6px 12px;display:inline-block;letter-spacing:1px}
+
+/* ══ SUBDOMAIN 4: FIBONACCI ══ */
+#fibonacci{background:var(--navy)}
+.fib-inner{max-width:1200px;margin:0 auto;padding:90px 40px}
+.fib-inner .s-label{color:var(--gold-l)}
+.fib-inner .s-title{color:#fff}
+.fib-inner .s-title em{color:var(--gold)}
+.fib-inner .s-intro{color:rgba(255,255,255,.65)}
+.fib-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px}
+.fib-card{border:1px solid rgba(197,160,89,.3);padding:32px;transition:border-color .3s}
+.fib-card:hover{border-color:var(--gold)}
+.fc-ratio{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--gold);margin-bottom:8px}
+.fc-name{font-family:'Montserrat',sans-serif;font-size:0.64rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-l);margin-bottom:14px;display:block}
+.fc-body{font-size:1rem;color:rgba(255,255,255,.65);line-height:1.75}
+.sequence-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px;align-items:center}
+.seq-num{font-family:'Playfair Display',serif;font-size:clamp(1rem,2vw,1.6rem);color:var(--gold);padding:8px 14px;border:1px solid rgba(197,160,89,.3)}
+.seq-arrow{color:rgba(197,160,89,.5);font-size:1rem}
+
+/* ══ SUBDOMAIN 5: MANDALA / KOLAM ══ */
+#mandala{background:var(--cream2)}
+.kolam-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:40px}
+.kolam-card{background:#fff;border:1px solid rgba(197,160,89,.2);padding:0;overflow:hidden;transition:all .3s}
+.kolam-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-4px)}
+.kc-diagram{height:180px;display:flex;align-items:center;justify-content:center;background:var(--navy);position:relative}
+.kc-body{padding:24px}
+.kc-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy2);margin-bottom:6px}
+.kc-body .kc-sub{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block}
+.kc-body p{font-size:0.92rem;color:var(--muted);line-height:1.65}
+.kc-math{background:var(--cream);padding:8px 14px;font-family:'Montserrat',sans-serif;font-size:0.68rem;color:var(--navy2);margin-top:12px;display:inline-block}
+
+/* ══ SUBDOMAIN 6: KHADGAMALA ══ */
+#khadgamala{background:#fff}
+.khadg-intro-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:72px;align-items:start;margin-bottom:60px}
+.khadg-text p{font-size:1.05rem;color:var(--muted);line-height:1.9;margin-bottom:18px}
+.khadg-quote{border-left:3px solid var(--gold);padding:20px 28px;background:var(--cream);margin:24px 0}
+.khadg-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:var(--navy2);line-height:1.5}
+.avarana-stack{display:flex;flex-direction:column;gap:8px}
+.av-ring{padding:14px 20px;border:1px solid rgba(197,160,89,.3);display:flex;align-items:center;gap:14px;transition:all .2s;cursor:default}
+.av-ring:hover{border-color:var(--gold);background:var(--cream)}
+.av-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);width:36px;flex-shrink:0;line-height:1}
+.av-name{font-family:'Montserrat',sans-serif;font-size:0.64rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy2)}
+.av-detail{font-size:0.82rem;color:var(--muted);margin-top:2px}
+.cross-ref-table{width:100%;border-collapse:collapse;margin-top:40px}
+.cross-ref-table th{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding:12px 16px;text-align:left;background:var(--navy2);border-bottom:2px solid var(--gold)}
+.cross-ref-table td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:0.95rem;color:var(--ink);vertical-align:top}
+.cross-ref-table tr:hover td{background:var(--cream)}
+.cross-ref-table td:first-child{font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;color:var(--gold)}
+.cross-ref-table td:nth-child(2){font-family:'Playfair Display',serif;font-style:italic}
+
+/* BLOCKQUOTE */
+.gold-quote{background:var(--navy2);padding:56px 60px;margin:60px 0;text-align:center}
+.gold-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:#fff;line-height:1.55;margin-bottom:16px}
+.gold-quote cite{font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-style:normal}
+
+/* FOOTER */
+footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px solid rgba(197,160,89,.15)}
+.footer-om{font-size:2.4rem;color:rgba(197,160,89,.4);display:block;margin-bottom:16px}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin:20px 0}
+.footer-links a{font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{font-family:'Montserrat',sans-serif;font-size:0.6rem;color:rgba(255,255,255,.3);letter-spacing:1px}
+
+@media(max-width:900px){
+  .sy-inner,.khadg-intro-grid{grid-template-columns:1fr}
+  .section{padding:60px 24px}
+  .fib-inner{padding:60px 24px}
+}
+@media(max-width:600px){
+  nav .nav-links{display:none}
+  .sy-facts{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="https://www.culturalmusings.com">CULTURALMUSINGS.COM</a>
+  <div class="nav-links">
+    <a href="#sri-yantra">Sri Yantra</a>
+    <a href="#vastu">Vastu</a>
+    <a href="#vedic-math">16 Sutras</a>
+    <a href="#fibonacci">Fibonacci</a>
+    <a href="#mandala">Mandala</a>
+    <a href="#khadgamala">Khadgamala</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- Background Sri Yantra SVG -->
+  <svg class="hero-yantra" width="700" height="700" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="350" cy="350" r="320" stroke="white" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="280" stroke="white" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="240" stroke="white" stroke-width="0.5"/>
+    <polygon points="350,100 570,480 130,480" stroke="white" stroke-width="0.8" fill="none"/>
+    <polygon points="350,600 130,220 570,220" stroke="white" stroke-width="0.8" fill="none"/>
+    <polygon points="350,140 530,440 170,440" stroke="white" stroke-width="0.6" fill="none"/>
+    <polygon points="350,560 170,260 530,260" stroke="white" stroke-width="0.6" fill="none"/>
+    <polygon points="350,180 510,410 190,410" stroke="white" stroke-width="0.5" fill="none"/>
+    <polygon points="350,520 190,290 510,290" stroke="white" stroke-width="0.5" fill="none"/>
+    <polygon points="350,220 490,380 210,380" stroke="white" stroke-width="0.4" fill="none"/>
+    <polygon points="350,480 210,320 490,320" stroke="white" stroke-width="0.4" fill="none"/>
+    <circle cx="350" cy="350" r="8" stroke="white" stroke-width="1" fill="none"/>
+  </svg>
+
+  <p class="hero-tag">Domain 1 of 9 · Grand Synthesis · Phase 1</p>
+  <h1>Sacred Geometry &amp;<br><em>Vedic Mathematics</em></h1>
+  <p class="sub">Where consciousness geometrises itself — from the Bindu point of the Sri Yantra to the 16 sutras of Vedic mathematics, from Vastu's directional map to the Fibonacci spiral hidden in ancient metre</p>
+  <div class="hero-stats">
+    <div class="hs"><span class="hs-n">6</span><div class="hs-l">Subdomains</div></div>
+    <div class="hs"><span class="hs-n">9</span><div class="hs-l">Sri Yantra Enclosures</div></div>
+    <div class="hs"><span class="hs-n">16</span><div class="hs-l">Vedic Math Sutras</div></div>
+    <div class="hs"><span class="hs-n">108</span><div class="hs-l">Khadgamala Stations</div></div>
+  </div>
+  <p class="scroll-hint">↓ scroll to explore ↓</p>
+</section>
+
+<!-- DOMAIN NAV -->
+<div style="background:var(--cream2);border-bottom:1px solid var(--border);padding:0 40px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="domain-nav">
+      <span class="dn-pill active" onclick="scrollTo('sri-yantra',this)">Sri Yantra</span>
+      <span class="dn-pill" onclick="scrollTo('vastu',this)">Vastu Shastra</span>
+      <span class="dn-pill" onclick="scrollTo('vedic-math',this)">16 Sutras</span>
+      <span class="dn-pill" onclick="scrollTo('fibonacci',this)">Fibonacci & Chandas</span>
+      <span class="dn-pill" onclick="scrollTo('mandala',this)">Mandala & Kolam</span>
+      <span class="dn-pill" onclick="scrollTo('khadgamala',this)">Khadgamala</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 1. SRI YANTRA ══ -->
+<section id="sri-yantra" style="background:var(--navy);padding:0">
+  <div class="sy-inner">
+    <div class="sy-text">
+      <span class="s-label" style="color:var(--gold-l)">Subdomain 1 of 6</span>
+      <h2 class="s-title" style="color:#fff">Sri Yantra —<br><em>Geometry of Consciousness</em></h2>
+      <p>The Sri Yantra is the most complex and sacred geometric form in the Vedic tradition — not a symbol but a precise mathematical diagram encoding the structure of consciousness itself. Its nine interlocking triangles create 43 smaller triangles, from which emerge 28 marma (energy) points and ultimately the single dimensionless Bindu at the centre.</p>
+      <p>Four upward-pointing triangles (Shiva) and five downward-pointing triangles (Shakti) interlock in a configuration that maintains 43 distinct sub-triangular forms without a single geometric error — a feat of precision that modern computational geometry has confirmed requires extraordinary mathematical knowledge to achieve.</p>
+      <p>The entire structure is a map of the universe's creation from the Bindu outward — and equally, a map of consciousness dissolving inward toward the Bindu. It is simultaneously cosmological and psychological, astronomical and anatomical.</p>
+      <div class="sy-facts">
+        <div class="sy-fact"><span class="fn">9</span><span class="fl">Interlocking Triangles</span></div>
+        <div class="sy-fact"><span class="fn">43</span><span class="fl">Sub-Triangles</span></div>
+        <div class="sy-fact"><span class="fn">28</span><span class="fl">Marma Points</span></div>
+        <div class="sy-fact"><span class="fn">1</span><span class="fl">Bindu · Pure Consciousness</span></div>
+      </div>
+    </div>
+    <div class="sy-diagram">
+      <!-- Animated Sri Yantra SVG -->
+      <svg width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%">
+        <!-- Outer circles -->
+        <circle cx="170" cy="170" r="158" stroke="rgba(197,160,89,0.3)" stroke-width="1"/>
+        <circle cx="170" cy="170" r="148" stroke="rgba(197,160,89,0.2)" stroke-width="1"/>
+        <!-- Lotus petals suggestion -->
+        <circle cx="170" cy="170" r="132" stroke="rgba(197,160,89,0.35)" stroke-width="1.5" stroke-dasharray="12 4"/>
+        <!-- Main triangles - 4 Shiva (upward) -->
+        <polygon points="170,42 285,234 55,234" stroke="#c5a059" stroke-width="1.5" fill="rgba(197,160,89,0.04)"/>
+        <polygon points="170,68 268,220 72,220" stroke="#c5a059" stroke-width="1" fill="none"/>
+        <polygon points="170,94 252,206 88,206" stroke="#c5a059" stroke-width="1" fill="none"/>
+        <polygon points="170,116 238,194 102,194" stroke="#c5a059" stroke-width="1" fill="none"/>
+        <!-- Main triangles - 5 Shakti (downward) -->
+        <polygon points="170,298 285,106 55,106" stroke="rgba(197,160,89,0.8)" stroke-width="1.5" fill="rgba(197,160,89,0.04)"/>
+        <polygon points="170,272 268,120 72,120" stroke="rgba(197,160,89,0.7)" stroke-width="1" fill="none"/>
+        <polygon points="170,248 252,134 88,134" stroke="rgba(197,160,89,0.6)" stroke-width="1" fill="none"/>
+        <polygon points="170,226 238,148 102,148" stroke="rgba(197,160,89,0.5)" stroke-width="1" fill="none"/>
+        <polygon points="170,206 224,160 116,160" stroke="rgba(197,160,89,0.4)" stroke-width="1" fill="none"/>
+        <!-- Bindu -->
+        <circle cx="170" cy="170" r="6" fill="var(--gold)" opacity="0.9"/>
+        <circle cx="170" cy="170" r="14" stroke="var(--gold)" stroke-width="1" fill="none" opacity="0.4"/>
+        <circle cx="170" cy="170" r="24" stroke="var(--gold)" stroke-width="0.5" fill="none" opacity="0.2"/>
+        <!-- Labels -->
+        <text x="170" y="26" fill="rgba(197,160,89,0.7)" font-size="8" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="2">BHUPURA</text>
+        <text x="170" y="175" fill="white" font-size="6" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1">BINDU</text>
+      </svg>
+
+      <div class="sy-layers">
+        <div class="sy-layer"><span class="sy-layer-num">①</span><div><div class="sy-layer-name">Bhupura</div><div class="sy-layer-desc">Earth square — the outer boundary, four gates</div></div></div>
+        <div class="sy-layer"><span class="sy-layer-num">②</span><div><div class="sy-layer-name">16-Petal Lotus</div><div class="sy-layer-desc">Fulfilment — Ashapuraka chakra</div></div></div>
+        <div class="sy-layer"><span class="sy-layer-num">③</span><div><div class="sy-layer-name">8-Petal Lotus</div><div class="sy-layer-desc">Nourishment — Sarvasamkshobhana</div></div></div>
+        <div class="sy-layer"><span class="sy-layer-num">④</span><div><div class="sy-layer-name">14 Triangles</div><div class="sy-layer-desc">Outer triangle enclosure</div></div></div>
+        <div class="sy-layer"><span class="sy-layer-num">⑤</span><div><div class="sy-layer-name">10 Triangles (outer)</div><div class="sy-layer-desc">Mid-level triangular field</div></div></div>
+        <div class="sy-layer"><span class="sy-layer-num">⑥</span><div><div class="sy-layer-name">10 Triangles (inner)</div><div class="sy-layer-desc">Inner triangular field</div></div></div>
+        <div class="sy-layer"><span class="sy-layer-num">⑦</span><div><div class="sy-layer-name">8 Triangles</div><div class="sy-layer-desc">Sarvasiddhiprada — all perfections</div></div></div>
+        <div class="sy-layer"><span class="sy-layer-num">⑧</span><div><div class="sy-layer-name">Primary Triangle</div><div class="sy-layer-desc">The innermost enclosure</div></div></div>
+        <div class="sy-layer"><span class="sy-layer-num">⑨</span><div><div class="sy-layer-name">Bindu · बिन्दु</div><div class="sy-layer-desc">Dimensionless point — pure consciousness</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2. VASTU SHASTRA ══ -->
+<section id="vastu" style="background:var(--cream)">
+  <div class="section">
+    <span class="s-label">Subdomain 2 of 6</span>
+    <h2 class="s-title">Vastu Shastra —<br><em>Sacred Space Science</em></h2>
+    <p class="s-intro">Vastu Shastra is the Vedic science of space — a complete system for aligning built environments with the directional energies of the cosmos. Each of the eight cardinal and intercardinal directions is governed by a specific deity, element, and quality of energy. The Vastu Purusha Mandala is a 81-square (9×9) grid encoding this cosmic plan onto every building, home, and temple.</p>
+    <div class="vastu-grid">
+      <div class="vastu-card"><div class="vc-dir">North</div><span class="vc-dev">UTTARA</span><div class="vc-deity">Kubera · God of Wealth</div><div class="vc-element">Water element · Prosperity, abundance, income</div></div>
+      <div class="vastu-card"><div class="vc-dir">North-East</div><span class="vc-dev">ISHANYA</span><div class="vc-deity">Ishana · Shiva aspect</div><div class="vc-element">Water + Ether · Wisdom, prayer, meditation</div></div>
+      <div class="vastu-card"><div class="vc-dir">East</div><span class="vc-dev">PURVA</span><div class="vc-deity">Indra · King of Gods</div><div class="vc-element">Air element · Health, social relationships, success</div></div>
+      <div class="vastu-card"><div class="vc-dir">South-East</div><span class="vc-dev">AGNEYA</span><div class="vc-deity">Agni · Fire God</div><div class="vc-element">Fire element · Energy, digestion, vitality, kitchen</div></div>
+      <div class="vastu-card"><div class="vc-dir">South</div><span class="vc-dev">DAKSHINA</span><div class="vc-deity">Yama · Lord of Dharma</div><div class="vc-element">Earth element · Stability, career, ancestors</div></div>
+      <div class="vastu-card"><div class="vc-dir">South-West</div><span class="vc-dev">NAIRITI</span><div class="vc-deity">Nirriti · Dissolution</div><div class="vc-element">Earth + Water · Relationships, master bedroom</div></div>
+      <div class="vastu-card"><div class="vc-dir">West</div><span class="vc-dev">PASHCHIMA</span><div class="vc-deity">Varuna · Water God</div><div class="vc-element">Water element · Gains, children, creativity</div></div>
+      <div class="vastu-card"><div class="vc-dir">North-West</div><span class="vc-dev">VAYAVYA</span><div class="vc-deity">Vayu · Wind God</div><div class="vc-element">Air element · Support, banking, guest area</div></div>
+      <div class="vastu-center-card"><div class="vc-dir" style="font-size:2rem">Centre</div><div><span class="vc-dev" style="color:var(--gold)">BRAHMASTHANA</span><div class="vc-deity">Brahma · The Creator</div><div class="vc-element">All elements unified · The sacred centre — must be open, unobstructed. The Vastu Purusha rests here. This is the body's navel point — the Manipura of the building.</div></div></div>
+    </div>
+    <div style="margin-top:40px;padding:28px 32px;background:#fff;border:1px solid var(--border);border-left:3px solid var(--gold)">
+      <strong style="font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold)">Mathematical Basis</strong>
+      <p style="margin-top:10px;font-size:1rem;color:var(--muted);line-height:1.75">The Vastu Purusha Mandala uses a 9×9 = 81 square grid. The central Brahmasthana occupies 9 of these squares. The four cardinal directions receive 8 squares each. The four intercardinal directions receive 4 squares each. Total: 9 + (4×8) + (4×4) + (4×3) = 81. This is not arbitrary — 81 = 3⁴ = the fourth power of the Vedic sacred number 3 (Trimurti, three Vedic fires, three states of consciousness).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. 16 SUTRAS ══ -->
+<section id="vedic-math">
+  <div class="section">
+    <span class="s-label">Subdomain 3 of 6</span>
+    <h2 class="s-title">16 Sutras of<br><em>Vedic Mathematics</em></h2>
+    <p class="s-intro">The 16 Sutras (aphorisms) and 13 Sub-Sutras of Vedic Mathematics were rediscovered by Jagadguru Shankaracharya Sri Bharati Krishna Tirthaji Maharaj (1884–1960) from the Atharva Veda. Each sutra encodes a complete mathematical technique — from multiplication and division to calculus and coordinate geometry — in a single line of Sanskrit.</p>
+    <div class="sutras-grid" id="sutras-grid"></div>
+  </div>
+</section>
+
+<!-- ══ 4. FIBONACCI & CHANDAS ══ -->
+<section id="fibonacci" style="background:var(--navy);padding:0">
+  <div class="fib-inner">
+    <span class="s-label" style="color:var(--gold-l)">Subdomain 4 of 6</span>
+    <h2 class="s-title" style="color:#fff">Fibonacci &amp; Chandas —<br><em>The Hidden Sequence</em></h2>
+    <p class="s-intro" style="color:rgba(255,255,255,.65)">The Fibonacci sequence — 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144... — was documented by the Vedic mathematician Virahanka (c. 700 CE), Gopala (c. 1135 CE), and Hemachandra (c. 1150 CE) in the context of Sanskrit prosody (Chandas). Pingala's Chandashaastra (c. 300 BCE) contains the earliest known description of what we now call the Fibonacci sequence, embedded in the study of poetic metres.</p>
+
+    <div class="sequence-bar">
+      <span class="seq-num">1</span><span class="seq-arrow">+</span>
+      <span class="seq-num">1</span><span class="seq-arrow">=</span>
+      <span class="seq-num">2</span><span class="seq-arrow">+</span>
+      <span class="seq-num">3</span><span class="seq-arrow">=</span>
+      <span class="seq-num">5</span><span class="seq-arrow">+</span>
+      <span class="seq-num">8</span><span class="seq-arrow">=</span>
+      <span class="seq-num">13</span><span class="seq-arrow">→</span>
+      <span class="seq-num" style="background:rgba(197,160,89,.15)">φ = 1.618...</span>
+    </div>
+
+    <div class="fib-grid" style="margin-top:48px">
+      <div class="fib-card">
+        <div class="fc-ratio">1:1.618</div>
+        <span class="fc-name">The Golden Ratio · φ (Phi)</span>
+        <div class="fc-body">As the Fibonacci sequence progresses, the ratio of consecutive terms converges to φ = 1.6180339887... The Vedic texts call this ratio <em style="color:var(--gold)">Swarna Matra</em> — the golden measure — present in the proportions of the human body, the growth of plants, the spirals of galaxies, and the construction of the Sri Yantra.</div>
+      </div>
+      <div class="fib-card">
+        <div class="fc-ratio">Matra</div>
+        <span class="fc-name">Chandas — Vedic Metre Science</span>
+        <div class="fc-body">Pingala's <em style="color:var(--gold)">Chandashaastra</em> classifies all Sanskrit poetic metres using binary sequences of short (laghu) and long (guru) syllables. The count of valid metres of each length follows the Fibonacci sequence exactly: 2, 3, 5, 8, 13, 21... This is not coincidence — it is the natural mathematics of sequential choice embedded in the structure of language.</div>
+      </div>
+      <div class="fib-card">
+        <div class="fc-ratio">108</div>
+        <span class="fc-name">Fibonacci in the Vedic Cosmos</span>
+        <div class="fc-body">The Vedic sacred numbers 1, 3, 5, 8, 13, 21, 34, 55, 89, 144 all appear in the structure of Vedic ritual, architecture, and cosmology. The number 108 = 4 × 27 = 4 × 3³, encoding the Fibonacci-adjacent 3-sequence at the heart of all Vedic sacred mathematics. The 108 Karanas, 108 Upanishads, and 108 beads of the Mala all encode this relationship.</div>
+      </div>
+      <div class="fib-card">
+        <div class="fc-ratio">√2, √3</div>
+        <span class="fc-name">Sulba Sutras — Irrational Geometry</span>
+        <div class="fc-body">The Sulba Sutras (c. 800–600 BCE) — appendices to the Kalpa texts — contain the earliest known proofs of the Pythagorean theorem and precise calculations of √2 (1.41421356...) accurate to five decimal places. The Baudhayana Sulba Sutra states: "The diagonal of a square produces double the area of the original square" — the Pythagorean theorem, 300 years before Pythagoras.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. MANDALA & KOLAM ══ -->
+<section id="mandala" style="background:var(--cream2)">
+  <div class="section">
+    <span class="s-label">Subdomain 5 of 6</span>
+    <h2 class="s-title">Mandala &amp; Kolam —<br><em>Sacred Pattern Mathematics</em></h2>
+    <p class="s-intro">The Mandala (Sanskrit: मण्डल — circle, completion, totality) is a geometric diagram encoding the structure of the cosmos at multiple scales. The South Indian Kolam — drawn daily at thresholds with rice flour — is a living mathematical practice: a system of closed, symmetrical line-patterns based on arrays of dots, encoding fractal self-similarity and group symmetry into daily ritual.</p>
+    <div class="kolam-grid">
+      <div class="kolam-card">
+        <div class="kc-diagram">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="50" stroke="rgba(197,160,89,0.6)" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="36" stroke="rgba(197,160,89,0.5)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="22" stroke="rgba(197,160,89,0.4)" stroke-width="1"/>
+            <polygon points="60,20 94,74 26,74" stroke="#c5a059" stroke-width="1.5" fill="rgba(197,160,89,0.1)"/>
+            <polygon points="60,100 94,46 26,46" stroke="rgba(197,160,89,0.7)" stroke-width="1.5" fill="rgba(197,160,89,0.1)"/>
+            <circle cx="60" cy="60" r="5" fill="#c5a059"/>
+          </svg>
+        </div>
+        <div class="kc-body">
+          <h3>Shatkona Mandala</h3>
+          <span class="kc-sub">Six-pointed star · Star of Anahata</span>
+          <p>Two interlocking equilateral triangles forming the six-pointed star — the geometric form of the Anahata (heart) chakra. Mathematically equivalent to the Star of David, independently discovered in multiple ancient traditions as the symbol of the union of opposites.</p>
+          <span class="kc-math">Symmetry Group: D₆ · 12 symmetries</span>
+        </div>
+      </div>
+      <div class="kolam-card">
+        <div class="kc-diagram">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <rect x="20" y="20" width="80" height="80" stroke="rgba(197,160,89,0.6)" stroke-width="1.5" fill="none"/>
+            <rect x="30" y="30" width="60" height="60" stroke="rgba(197,160,89,0.4)" stroke-width="1" fill="none" transform="rotate(45 60 60)"/>
+            <rect x="40" y="40" width="40" height="40" stroke="rgba(197,160,89,0.3)" stroke-width="1" fill="none"/>
+            <circle cx="60" cy="60" r="12" stroke="#c5a059" stroke-width="1.5" fill="none"/>
+            <circle cx="60" cy="60" r="4" fill="#c5a059"/>
+            <line x1="20" y1="60" x2="100" y2="60" stroke="rgba(197,160,89,0.3)" stroke-width="0.5"/>
+            <line x1="60" y1="20" x2="60" y2="100" stroke="rgba(197,160,89,0.3)" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <div class="kc-body">
+          <h3>Vastu Mandala</h3>
+          <span class="kc-sub">Square within circle · Earth and cosmos</span>
+          <p>The Vastu Purusha Mandala encodes the squaring of the circle — the reconciliation of earth (square) with cosmos (circle). The 9×9 = 81 square grid maps directional energies onto architectural space, encoding the same mathematical structure found in Celtic mandalas, Islamic geometric art, and Renaissance architectural theory.</p>
+          <span class="kc-math">Grid: 9×9 = 81 squares · 3⁴ structure</span>
+        </div>
+      </div>
+      <div class="kolam-card">
+        <div class="kc-diagram">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <!-- Kolam dot grid and loop pattern -->
+            <circle cx="40" cy="40" r="3" fill="rgba(197,160,89,0.6)"/>
+            <circle cx="60" cy="40" r="3" fill="rgba(197,160,89,0.6)"/>
+            <circle cx="80" cy="40" r="3" fill="rgba(197,160,89,0.6)"/>
+            <circle cx="40" cy="60" r="3" fill="rgba(197,160,89,0.6)"/>
+            <circle cx="60" cy="60" r="3" fill="rgba(197,160,89,0.6)"/>
+            <circle cx="80" cy="60" r="3" fill="rgba(197,160,89,0.6)"/>
+            <circle cx="40" cy="80" r="3" fill="rgba(197,160,89,0.6)"/>
+            <circle cx="60" cy="80" r="3" fill="rgba(197,160,89,0.6)"/>
+            <circle cx="80" cy="80" r="3" fill="rgba(197,160,89,0.6)"/>
+            <!-- Kolam loop -->
+            <path d="M 60 28 C 80 28 92 40 92 60 C 92 80 80 92 60 92 C 40 92 28 80 28 60 C 28 40 40 28 60 28" stroke="#c5a059" stroke-width="1.5" fill="none"/>
+            <path d="M 60 38 C 74 38 82 46 82 60 C 82 74 74 82 60 82 C 46 82 38 74 38 60 C 38 46 46 38 60 38" stroke="rgba(197,160,89,0.5)" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <div class="kc-body">
+          <h3>Kolam — Threshold Geometry</h3>
+          <span class="kc-sub">Tamil Nadu daily ritual · Living mathematics</span>
+          <p>The Tamil Kolam (also: Rangoli in the North) is drawn daily at home thresholds. Each pattern is constructed by drawing a continuous line that winds around a grid of dots without lifting the hand. This is equivalent to finding Eulerian paths in graph theory — a connection only formalised by Western mathematics in the 18th century.</p>
+          <span class="kc-math">Eulerian path theory · Graph connectivity</span>
+        </div>
+      </div>
+      <div class="kolam-card">
+        <div class="kc-diagram">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <!-- Fractal-like lotus -->
+            <circle cx="60" cy="60" r="44" stroke="rgba(197,160,89,0.3)" stroke-width="1" fill="none"/>
+            <ellipse cx="60" cy="32" rx="12" ry="20" stroke="#c5a059" stroke-width="1" fill="rgba(197,160,89,0.1)" transform="rotate(0 60 60)"/>
+            <ellipse cx="60" cy="32" rx="12" ry="20" stroke="#c5a059" stroke-width="1" fill="rgba(197,160,89,0.1)" transform="rotate(45 60 60)"/>
+            <ellipse cx="60" cy="32" rx="12" ry="20" stroke="#c5a059" stroke-width="1" fill="rgba(197,160,89,0.1)" transform="rotate(90 60 60)"/>
+            <ellipse cx="60" cy="32" rx="12" ry="20" stroke="#c5a059" stroke-width="1" fill="rgba(197,160,89,0.1)" transform="rotate(135 60 60)"/>
+            <ellipse cx="60" cy="32" rx="12" ry="20" stroke="#c5a059" stroke-width="1" fill="rgba(197,160,89,0.1)" transform="rotate(180 60 60)"/>
+            <ellipse cx="60" cy="32" rx="12" ry="20" stroke="#c5a059" stroke-width="1" fill="rgba(197,160,89,0.1)" transform="rotate(225 60 60)"/>
+            <ellipse cx="60" cy="32" rx="12" ry="20" stroke="#c5a059" stroke-width="1" fill="rgba(197,160,89,0.1)" transform="rotate(270 60 60)"/>
+            <ellipse cx="60" cy="32" rx="12" ry="20" stroke="#c5a059" stroke-width="1" fill="rgba(197,160,89,0.1)" transform="rotate(315 60 60)"/>
+            <circle cx="60" cy="60" r="10" fill="rgba(197,160,89,0.3)" stroke="#c5a059" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="kc-body">
+          <h3>Ashta-dala Padma</h3>
+          <span class="kc-sub">Eight-petal lotus · Dihedral group D₈</span>
+          <p>The eight-petalled lotus appears across Indian temple architecture, tantric yantras, and Kolam patterns. Its symmetry group D₈ (dihedral group of order 16) — eight rotational and eight reflective symmetries — is one of the most commonly occurring symmetry groups in nature, from flowers to protein structures.</p>
+          <span class="kc-math">Symmetry Group: D₈ · 16 symmetries</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6. KHADGAMALA ══ -->
+<section id="khadgamala">
+  <div class="section">
+    <span class="s-label">Subdomain 6 of 6</span>
+    <h2 class="s-title">Khadgamala —<br><em>The Ritual Spatial Map</em></h2>
+    <p class="s-intro">The Khadgamala Stotram (Sword-Garland Hymn) is a tantric invocation of the 108 divine feminine presences arranged across the nine enclosures (Avaranas) of the Sri Yantra. It is simultaneously a devotional hymn, a spatial ritual map, and — when cross-referenced with the 108 Karanas of the Natya Shastra — a body-geometry synthesis of extraordinary depth.</p>
+    <div class="khadg-intro-grid">
+      <div class="khadg-text">
+        <p>Each of the nine Avaranas (enclosures) of the Sri Yantra corresponds to a specific group of divine feminine presences (Shaktis), each of whom governs a specific spatial region, emotional quality, and cosmic principle. The Khadgamala recitation systematically invokes these presences from the outermost square (Bhupura) inward to the Bindu — a journey that is simultaneously spatial, psychological, and cosmological.</p>
+        <p>The cross-reference with the 108 Karanas of Bharata Muni's Natya Shastra creates one of the most novel contributions possible in this synthesis: each Karana is a body-position in physical space; each Khadgamala station is a spatial-energetic position in the Sri Yantra's geometric space. Mapping these creates a unified body-cosmos geometry.</p>
+        <div class="khadg-quote">
+          <p>"The Khadgamala is a journey from the circumference of the cosmos to its dimensionless centre — and the 108 Karanas are the movements the body makes on that journey."</p>
+        </div>
+        <p>The synthesis point: <strong>Karana 1</strong> (Talapushpaputa — the offering cup) maps to the Bhupura's gatekeepers who receive the devotee at entry. <strong>Karana 54</strong> (the midpoint) maps to the transition into the inner triangle. <strong>Karana 108</strong> (Urdhvajanu — raised knee) maps to the Bindu — the dimensionless point of pure consciousness, the final position of the dancer and the final station of the Khadgamala simultaneously.</p>
+      </div>
+      <div class="avarana-stack">
+        <div class="av-ring"><span class="av-num">9</span><div><div class="av-name">Bhupura · Earth Square</div><div class="av-detail">10 + 8 deities · Karanas 1–14</div></div></div>
+        <div class="av-ring"><span class="av-num">8</span><div><div class="av-name">16-Petal Lotus</div><div class="av-detail">16 Nityā Shaktis · Karanas 15–26</div></div></div>
+        <div class="av-ring"><span class="av-num">7</span><div><div class="av-name">8-Petal Lotus</div><div class="av-detail">8 Vāgdevīs · Karanas 27–38</div></div></div>
+        <div class="av-ring"><span class="av-num">6</span><div><div class="av-name">14-Triangle Enclosure</div><div class="av-detail">14 Shaktis · Karanas 39–52</div></div></div>
+        <div class="av-ring"><span class="av-num">5</span><div><div class="av-name">Outer 10-Triangle</div><div class="av-detail">10 Shaktis · Karanas 53–64</div></div></div>
+        <div class="av-ring"><span class="av-num">4</span><div><div class="av-name">Inner 10-Triangle</div><div class="av-detail">10 Shaktis · Karanas 65–76</div></div></div>
+        <div class="av-ring"><span class="av-num">3</span><div><div class="av-name">8-Triangle Enclosure</div><div class="av-detail">8 Shaktis · Karanas 77–88</div></div></div>
+        <div class="av-ring"><span class="av-num">2</span><div><div class="av-name">Primary Triangle</div><div class="av-detail">3 Shaktis · Karanas 89–104</div></div></div>
+        <div class="av-ring" style="border-color:var(--gold);background:var(--cream)"><span class="av-num" style="color:var(--gold)">1</span><div><div class="av-name" style="color:var(--navy2);font-weight:700">Bindu · Pure Consciousness</div><div class="av-detail">Lalitā Mahātripurasundarī · Karana 108</div></div></div>
+      </div>
+    </div>
+
+    <!-- Cross-reference table -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy2);margin-bottom:20px">Khadgamala × 108 Karanas — Cross-Reference</h3>
+    <div style="overflow-x:auto">
+      <table class="cross-ref-table">
+        <thead>
+          <tr>
+            <th>Karana #</th>
+            <th>Karana Name</th>
+            <th>Āvaraṇa</th>
+            <th>Khadgamala Station</th>
+            <th>Geometric Correspondence</th>
+            <th>Cosmic Principle</th>
+          </tr>
+        </thead>
+        <tbody id="khadg-table"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING QUOTE -->
+<div class="gold-quote">
+  <p>"The universe geometrises itself into consciousness. The Sri Yantra is that geometry. The Vedic mathematician knows it by number, the Vastu architect by direction, the Kolam artist by line, and the Karana dancer by the movement of the body in space. All four are saying the same thing."</p>
+  <cite>— Naredla Rama Chandra · Grand Synthesis · Domain 1</cite>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-om">ॐ</span>
+  <div class="footer-links">
+    <a href="https://www.culturalmusings.com">culturalmusings.com</a>
+    <a href="https://natyashastra.culturalmusings.com">Natya Shastra</a>
+    <a href="https://karanassacredsynthesis.culturalmusings.com">Karanas Synthesis</a>
+    <a href="https://vedicmathematicsgeometry.culturalmusings.com">Vedic Mathematics</a>
+    <a href="https://unifiedtheory.culturalmusings.com">Unified Theory</a>
+    <a href="https://github.com/ramachandra1975">GitHub</a>
+  </div>
+  <p class="footer-copy">© Naredla Rama Chandra · culturalmusings.com · Domain 1 of 9 · Grand Synthesis · Phase 1</p>
+</footer>
+
+<script>
+/* ── Scroll to section ── */
+function scrollTo(id, pill) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var top = el.getBoundingClientRect().top + window.pageYOffset - 64;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+  document.querySelectorAll('.dn-pill').forEach(function(p){ p.classList.remove('active'); });
+  if (pill) pill.classList.add('active');
+}
+
+/* Active pill on scroll */
+window.addEventListener('scroll', function () {
+  var sections = ['sri-yantra','vastu','vedic-math','fibonacci','mandala','khadgamala'];
+  var pills = document.querySelectorAll('.dn-pill');
+  var current = 0;
+  sections.forEach(function(id, i) {
+    var el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 120) current = i;
+  });
+  pills.forEach(function(p, i) { p.classList.toggle('active', i === current); });
+}, { passive: true });
+
+/* ── 16 Sutras data ── */
+var SUTRAS = [
+  { n:1,  name:'Ekadhikena Purvena',     sans:'एकाधिकेन पूर्वेण',     meaning:'By one more than the previous',      example:'Squaring numbers ending in 5: 65² = 6×7 / 25 = 4225' },
+  { n:2,  name:'Nikhilam',               sans:'निखिलम्',               meaning:'All from 9 and last from 10',         example:'Multiply 98×97: (100-2)(100-3) = 100×95 + 2×3 = 9506' },
+  { n:3,  name:'Urdhva-Tiryagbhyam',     sans:'ऊर्ध्व-तिर्यग्भ्याम्', meaning:'Vertically and crosswise',           example:'Universal multiplication: works for any two numbers' },
+  { n:4,  name:'Paravartya Yojayet',     sans:'परावर्त्य योजयेत्',     meaning:'Transpose and apply',                example:'Division: 1234÷112 — transpose divisor digits' },
+  { n:5,  name:'Shunyam Samyasamuccaye', sans:'शून्यम् साम्यसमुच्चये', meaning:'If the sum is the same, that sum is zero', example:'Equations where combined terms equal zero' },
+  { n:6,  name:'Anurupye Shunyamanyat', sans:'आनुरूप्येण',            meaning:'If one is in ratio, the other is zero', example:'Proportional equations and ratios' },
+  { n:7,  name:'Sankalana-Vyavakalanabhyam', sans:'सङ्कलन-व्यवकलनाभ्याम्', meaning:'By addition and subtraction', example:'Solving simultaneous equations' },
+  { n:8,  name:'Puranapuranabhyam',      sans:'पूरणापूरणाभ्याम्',      meaning:'By completion or non-completion',     example:'Completing the square method' },
+  { n:9,  name:'Chalana-Kalanabhyam',    sans:'चलन-कलनाभ्याम्',       meaning:'Differential calculus — differences and similarities', example:'Factorisation and calculus operations' },
+  { n:10, name:'Yavadunam',              sans:'यावदूनम्',               meaning:'Whatever the extent of deficiency',   example:'Cubing and square roots — base method' },
+  { n:11, name:'Vyashtisamanstih',       sans:'व्यष्टिसमष्टिः',        meaning:'Part and whole',                      example:'Factoring quadratics and higher polynomials' },
+  { n:12, name:'Shesanyankena Charamena', sans:'शेषाण्यङ्केन चरमेण',  meaning:'The remainders by last digit',        example:'Straight division — last digit method' },
+  { n:13, name:'Sopaantyadvayamantyam',  sans:'सोपान्त्यद्वयमन्त्यम्', meaning:'The ultimate and twice the penultimate', example:'Certain algebraic fraction computations' },
+  { n:14, name:'Ekanyunena Purvena',     sans:'एकन्यूनेन पूर्वेण',     meaning:'By one less than the previous',       example:'Multiplication by series of 9s' },
+  { n:15, name:'Gunitasamuchyah',        sans:'गुणितसमुच्चयः',         meaning:'The product of the sum equals sum of the products', example:'Verification of multiplication results' },
+  { n:16, name:'Gunakasamuchyah',        sans:'गुणकसमुच्चयः',          meaning:'The factors of the sum equal the sum of the factors', example:'Factorisation verification — all operations' }
+];
+
+var grid = document.getElementById('sutras-grid');
+if (grid) {
+  grid.innerHTML = SUTRAS.map(function(s) {
+    return '<div class="sutra-card">'
+      + '<div class="sc-num">' + s.n + '</div>'
+      + '<div class="sc-name">' + s.name + '</div>'
+      + '<span class="sc-sanskrit">' + s.sans + '</span>'
+      + '<div class="sc-meaning">' + s.meaning + '</div>'
+      + '<span class="sc-example">Example: ' + s.example + '</span>'
+      + '</div>';
+  }).join('');
+}
+
+/* ── Khadgamala cross-reference table ── */
+var KHADG = [
+  [1,   'Talapushpaputa',    9, 'Anima Shakti',          'Outer square — Earth gate',        'Offering — entry into sacred space'],
+  [9,   'Ardha-Chandra',     8, 'Kāmeshvarī',            '16-petal lotus — first ring',      'Desire fulfilled — Nityā Shaktis'],
+  [18,  'Nikuttaka',         7, 'Bhagamālinī',           '8-petal lotus — second ring',      'Speech goddesses — Vāgdevīs'],
+  [27,  'Sarpita',           6, 'Nityaklinnā',           '14-triangle outer field',          'Serpentine — dissolution of form'],
+  [36,  'Vivartita',         5, 'Bherunḍā',              'Outer 10-triangle field',          'Full turn — Sarvasiddhiprada'],
+  [45,  'Lata',              4, 'Vahnivāsinī',           'Inner 10-triangle field',          'Creeper — the inner Shaktis'],
+  [54,  'Gajakridita',       3, 'Mahāvajreshvarī',       '8-triangle transition zone',       'Elephant play — entering inner space'],
+  [63,  'Bhramari',          2, 'Shivadūtī',             'Primary triangle',                 'Bee spin — approaching the Bindu'],
+  [72,  'Urdhvajangha',      2, 'Tvaritā',               'Primary triangle — upper apex',    'Raised knee — approaching apex'],
+  [81,  'Nupurapada',        2, 'Kulasundarī',           'Primary triangle — right vertex',  'Anklet foot — right vertex Shakti'],
+  [90,  'Svastika',          1, 'Lalitā Parāshakti',     'Bindu approach',                   'Cross — convergence toward the point'],
+  [99,  'Lolita',            1, 'Mahāparāshakti',        'Bindu — dimensionless threshold',  'Swaying — on the edge of the point'],
+  [108, 'Urdhva-Janu',       1, 'Lalitā Mahātripurasundarī', 'Bindu — pure consciousness', 'Raised knee to sky — Bindu attained']
+];
+
+var tbl = document.getElementById('khadg-table');
+if (tbl) {
+  tbl.innerHTML = KHADG.map(function(r) {
+    return '<tr>'
+      + '<td>' + r[0] + '</td>'
+      + '<td>' + r[1] + '</td>'
+      + '<td style="text-align:center">' + r[2] + '</td>'
+      + '<td>' + r[3] + '</td>'
+      + '<td style="color:var(--muted);font-size:0.88rem">' + r[4] + '</td>'
+      + '<td style="color:var(--muted);font-size:0.88rem">' + r[5] + '</td>'
+      + '</tr>';
+  }).join('');
+}
+</script>
+</body>
+</html>

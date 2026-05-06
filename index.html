@@ -28,6 +28,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 #hero{min-height:100vh;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 80px;position:relative;overflow:hidden}
 .hero-yantra{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.05;pointer-events:none}
 .hero-tag{font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;position:relative;z-index:1}
+.phase-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(197,160,89,0.15);border:1px solid rgba(197,160,89,0.4);padding:5px 14px;border-radius:2px;margin-bottom:16px;position:relative;z-index:1}
+.phase-badge .pb-dot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:pulse-dot 2s ease-in-out infinite}
+.phase-badge .pb-txt{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(0.7)}}
 #hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:400;color:#fff;line-height:1.05;margin-bottom:12px;position:relative;z-index:1}
 #hero h1 em{color:var(--gold);font-style:italic}
 #hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.5rem);color:rgba(255,255,255,.65);max-width:680px;line-height:1.7;margin:0 auto 48px;position:relative;z-index:1}
@@ -51,9 +55,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 .dn-pill:hover,.dn-pill.active{background:var(--gold);color:#fff;border-color:var(--gold)}
 
 /* ══ SUBDOMAIN 1: SRI YANTRA ══ */
-#sri-yantra{background:var(--navy)}
-.sy-inner{max-width:1200px;margin:0 auto;padding:90px 40px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.sy-text{}
+#sri-yantra{background:var(--navy);padding:0}
+.sy-inner{max-width:1200px;margin:0 auto;padding:90px 40px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .sy-text .s-label{color:var(--gold-l)}
 .sy-text .s-title{color:#fff}
 .sy-text .s-title em{color:var(--gold)}
@@ -63,30 +66,53 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 .sy-fact .fn{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold);line-height:1;display:block}
 .sy-fact .fl{font-family:'Montserrat',sans-serif;font-size:0.56rem;letter-spacing:2px;color:rgba(255,255,255,.5);text-transform:uppercase}
 .sy-diagram{display:flex;flex-direction:column;align-items:center;gap:20px}
-.sy-layers{display:flex;flex-direction:column;gap:8px;width:100%;max-width:360px}
+
+/* ── Interactive Sri Yantra Layer Explorer ── */
+.yantra-explorer{width:100%;max-width:400px;position:relative}
+.yantra-canvas-wrap{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.yantra-canvas-wrap svg{transition:all .4s ease}
+.sy-layer-controls{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
+.sy-lbtn{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:1.5px;padding:5px 10px;border:1px solid rgba(197,160,89,.3);color:rgba(197,160,89,.7);background:transparent;cursor:pointer;transition:all .2s;text-transform:uppercase}
+.sy-lbtn:hover,.sy-lbtn.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.sy-layer-info{background:rgba(197,160,89,.07);border:1px solid rgba(197,160,89,.2);padding:14px 16px;min-height:58px;text-align:center}
+.sy-layer-info .sli-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);display:block;margin-bottom:4px}
+.sy-layer-info .sli-desc{font-size:0.85rem;color:rgba(255,255,255,.6)}
+
+.sy-layers{display:flex;flex-direction:column;gap:8px;width:100%;max-width:380px}
 .sy-layer{display:flex;align-items:center;gap:12px;padding:10px 16px;border:1px solid rgba(197,160,89,.2);cursor:pointer;transition:all .2s}
 .sy-layer:hover{border-color:var(--gold);background:rgba(197,160,89,.06)}
+.sy-layer.active-layer{border-color:var(--gold);background:rgba(197,160,89,.12)}
 .sy-layer-num{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);width:32px;flex-shrink:0}
 .sy-layer-name{font-family:'Montserrat',sans-serif;font-size:0.64rem;letter-spacing:1.5px;color:rgba(255,255,255,.8);text-transform:uppercase}
 .sy-layer-desc{font-size:0.82rem;color:rgba(255,255,255,.5);margin-top:2px}
 
 /* ══ SUBDOMAIN 2: VASTU ══ */
 #vastu{background:var(--cream)}
-.vastu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-top:40px}
-.vastu-card{background:#fff;border:1px solid rgba(197,160,89,.25);padding:28px;position:relative;transition:all .3s}
-.vastu-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.07);border-color:var(--gold)}
-.vc-dir{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy2);margin-bottom:6px}
-.vc-dev{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:block}
-.vc-deity{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--muted);margin-bottom:8px}
+/* Vastu Compass interactive diagram */
+.vastu-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;margin-top:40px}
+.vastu-compass-wrap{position:sticky;top:80px}
+.vastu-compass{position:relative;width:360px;max-width:100%}
+.vastu-compass svg{width:100%;height:auto}
+.vc-tooltip{position:absolute;pointer-events:none;background:var(--navy2);color:#fff;padding:12px 16px;font-size:0.82rem;border:1px solid var(--gold);max-width:200px;opacity:0;transition:opacity .2s;z-index:10;border-radius:1px}
+.vc-tooltip .vct-dir{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);display:block;margin-bottom:4px}
+.vc-tooltip .vct-deity{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold-l);margin-bottom:6px;display:block}
+.vastu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.vastu-card{background:#fff;border:1px solid rgba(197,160,89,.25);padding:24px;transition:all .3s;cursor:pointer}
+.vastu-card:hover,.vastu-card.highlighted{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.07);border-color:var(--gold)}
+.vc-dir{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--navy2);margin-bottom:4px}
+.vc-dev{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;display:block}
+.vc-deity{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--muted);margin-bottom:6px}
 .vc-element{font-size:0.88rem;color:#888}
-.vastu-center-card{grid-column:1/-1;background:var(--navy2);color:#fff;padding:28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.vastu-center-card .vc-dir{color:var(--gold)}
+.vastu-center-card{grid-column:1/-1;background:var(--navy2);color:#fff;padding:24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.vastu-center-card .vc-dir{color:var(--gold);font-size:2rem}
 .vastu-center-card .vc-deity,.vastu-center-card .vc-element{color:rgba(255,255,255,.7)}
 
 /* ══ SUBDOMAIN 3: 16 SUTRAS ══ */
 #vedic-math{background:#fff}
 .sutras-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2px;border:1px solid var(--border);margin-top:40px}
-.sutra-card{padding:28px 30px;border-right:none;border-bottom:1px solid var(--border);background:#fff;transition:all .3s;cursor:pointer}
+.sutra-card{padding:28px 30px;border-bottom:1px solid var(--border);background:#fff;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.sutra-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transition:transform .3s;transform-origin:bottom}
+.sutra-card:hover::before{transform:scaleY(1)}
 .sutra-card:hover{background:var(--cream);transform:translateX(6px)}
 .sc-num{font-family:'Playfair Display',serif;font-size:2.2rem;color:rgba(197,160,89,.2);float:right;line-height:1;margin-top:-4px}
 .sc-name{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--navy2);margin-bottom:4px}
@@ -95,13 +121,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 .sc-example{font-family:'Montserrat',sans-serif;font-size:0.7rem;background:var(--navy2);color:var(--gold-l);padding:6px 12px;display:inline-block;letter-spacing:1px}
 
 /* ══ SUBDOMAIN 4: FIBONACCI ══ */
-#fibonacci{background:var(--navy)}
+#fibonacci{background:var(--navy);padding:0}
 .fib-inner{max-width:1200px;margin:0 auto;padding:90px 40px}
 .fib-inner .s-label{color:var(--gold-l)}
 .fib-inner .s-title{color:#fff}
 .fib-inner .s-title em{color:var(--gold)}
 .fib-inner .s-intro{color:rgba(255,255,255,.65)}
-.fib-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px}
+
+/* Fibonacci Spiral SVG */
+.fib-spiral-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:48px}
+.fib-spiral-svg{text-align:center}
+.fib-spiral-svg svg{max-width:340px;width:100%}
+
+.fib-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
 .fib-card{border:1px solid rgba(197,160,89,.3);padding:32px;transition:border-color .3s}
 .fib-card:hover{border-color:var(--gold)}
 .fc-ratio{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--gold);margin-bottom:8px}
@@ -111,10 +143,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 .seq-num{font-family:'Playfair Display',serif;font-size:clamp(1rem,2vw,1.6rem);color:var(--gold);padding:8px 14px;border:1px solid rgba(197,160,89,.3)}
 .seq-arrow{color:rgba(197,160,89,.5);font-size:1rem}
 
+/* Chandas metre table */
+.chandas-table{width:100%;border-collapse:collapse;margin-top:28px}
+.chandas-table th{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding:10px 14px;text-align:left;background:rgba(197,160,89,.1);border-bottom:1px solid rgba(197,160,89,.3)}
+.chandas-table td{padding:10px 14px;border-bottom:1px solid rgba(197,160,89,.1);font-size:0.9rem;color:rgba(255,255,255,.7)}
+.chandas-table td:nth-child(3){font-family:'Playfair Display',serif;color:var(--gold);font-size:1.1rem}
+
 /* ══ SUBDOMAIN 5: MANDALA / KOLAM ══ */
 #mandala{background:var(--cream2)}
 .kolam-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:40px}
-.kolam-card{background:#fff;border:1px solid rgba(197,160,89,.2);padding:0;overflow:hidden;transition:all .3s}
+.kolam-card{background:#fff;border:1px solid rgba(197,160,89,.2);overflow:hidden;transition:all .3s}
 .kolam-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-4px)}
 .kc-diagram{height:180px;display:flex;align-items:center;justify-content:center;background:var(--navy);position:relative}
 .kc-body{padding:24px}
@@ -122,6 +160,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 .kc-body .kc-sub{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block}
 .kc-body p{font-size:0.92rem;color:var(--muted);line-height:1.65}
 .kc-math{background:var(--cream);padding:8px 14px;font-family:'Montserrat',sans-serif;font-size:0.68rem;color:var(--navy2);margin-top:12px;display:inline-block}
+
+/* Kolam generator */
+.kolam-generator{margin-top:60px;background:#fff;border:1px solid var(--border);padding:40px}
+.kg-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy2);margin-bottom:8px}
+.kg-sub{font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:block}
+.kg-controls{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:28px}
+.kg-btn{font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px;border:1px solid var(--navy2);color:var(--navy2);background:transparent;cursor:pointer;transition:all .2s;font-weight:700}
+.kg-btn:hover,.kg-btn.active{background:var(--navy2);color:var(--gold)}
+.kg-canvas{background:var(--navy);display:flex;align-items:center;justify-content:center;padding:32px;min-height:300px}
+.kg-canvas svg{max-width:100%;height:auto}
+.kg-desc{margin-top:16px;font-size:0.92rem;color:var(--muted);line-height:1.65;font-style:italic}
 
 /* ══ SUBDOMAIN 6: KHADGAMALA ══ */
 #khadgamala{background:#fff}
@@ -135,17 +184,38 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 .av-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);width:36px;flex-shrink:0;line-height:1}
 .av-name{font-family:'Montserrat',sans-serif;font-size:0.64rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy2)}
 .av-detail{font-size:0.82rem;color:var(--muted);margin-top:2px}
-.cross-ref-table{width:100%;border-collapse:collapse;margin-top:40px}
-.cross-ref-table th{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding:12px 16px;text-align:left;background:var(--navy2);border-bottom:2px solid var(--gold)}
-.cross-ref-table td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:0.95rem;color:var(--ink);vertical-align:top}
+
+/* Full 108-Karana cross-reference table */
+.khadg-table-section{margin-top:60px}
+.khadg-table-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px}
+.khadg-table-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy2)}
+.khadg-filter{display:flex;gap:8px;flex-wrap:wrap}
+.kf-btn{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;border:1px solid var(--border);color:var(--muted);background:transparent;cursor:pointer;transition:all .2s}
+.kf-btn:hover,.kf-btn.active{background:var(--gold);color:#fff;border-color:var(--gold)}
+.cross-ref-table{width:100%;border-collapse:collapse}
+.cross-ref-table th{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding:12px 14px;text-align:left;background:var(--navy2);border-bottom:2px solid var(--gold)}
+.cross-ref-table td{padding:11px 14px;border-bottom:1px solid var(--border);font-size:0.88rem;color:var(--ink);vertical-align:top}
 .cross-ref-table tr:hover td{background:var(--cream)}
-.cross-ref-table td:first-child{font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;color:var(--gold)}
-.cross-ref-table td:nth-child(2){font-family:'Playfair Display',serif;font-style:italic}
+.cross-ref-table tr.av-boundary td{border-top:2px solid rgba(197,160,89,.4)}
+.cross-ref-table td.td-num{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);font-weight:400;text-align:center;width:52px}
+.cross-ref-table td.td-karana{font-family:'Playfair Display',serif;font-style:italic;color:var(--navy2)}
+.cross-ref-table td.td-av{font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:1px;text-align:center;color:var(--gold);font-weight:700}
+.cross-ref-table td.td-station{color:var(--navy2)}
+.cross-ref-table td.td-geo,.cross-ref-table td.td-cosmic{color:var(--muted);font-size:0.82rem}
+.cross-ref-table tr.hidden-row{display:none}
+.table-wrap{overflow-x:auto}
+.show-all-btn{font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;border:1px solid var(--navy2);color:var(--navy2);background:transparent;cursor:pointer;transition:all .2s;margin-top:20px;display:block;width:100%;text-align:center;font-weight:700}
+.show-all-btn:hover{background:var(--navy2);color:var(--gold)}
 
 /* BLOCKQUOTE */
 .gold-quote{background:var(--navy2);padding:56px 60px;margin:60px 0;text-align:center}
 .gold-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:#fff;line-height:1.55;margin-bottom:16px}
 .gold-quote cite{font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-style:normal}
+
+/* Phase 2 badge strip */
+.phase2-strip{background:linear-gradient(135deg,var(--navy),#0a1a35);border-top:1px solid rgba(197,160,89,.2);border-bottom:1px solid rgba(197,160,89,.2);padding:20px 40px;text-align:center}
+.phase2-strip p{font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;color:rgba(197,160,89,.7)}
+.phase2-strip span{color:var(--gold)}
 
 /* FOOTER */
 footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px solid rgba(197,160,89,.15)}
@@ -156,13 +226,15 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
 .footer-copy{font-family:'Montserrat',sans-serif;font-size:0.6rem;color:rgba(255,255,255,.3);letter-spacing:1px}
 
 @media(max-width:900px){
-  .sy-inner,.khadg-intro-grid{grid-template-columns:1fr}
+  .sy-inner,.khadg-intro-grid,.fib-spiral-wrap,.vastu-layout{grid-template-columns:1fr}
   .section{padding:60px 24px}
   .fib-inner{padding:60px 24px}
+  .vastu-compass-wrap{position:static}
 }
 @media(max-width:600px){
   nav .nav-links{display:none}
   .sy-facts{grid-template-columns:1fr 1fr}
+  .gold-quote{padding:36px 24px}
 }
 </style>
 </head>
@@ -182,7 +254,6 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
 
 <!-- HERO -->
 <section id="hero">
-  <!-- Background Sri Yantra SVG -->
   <svg class="hero-yantra" width="700" height="700" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="350" cy="350" r="320" stroke="white" stroke-width="0.5"/>
     <circle cx="350" cy="350" r="280" stroke="white" stroke-width="0.5"/>
@@ -197,8 +268,7 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
     <polygon points="350,480 210,320 490,320" stroke="white" stroke-width="0.4" fill="none"/>
     <circle cx="350" cy="350" r="8" stroke="white" stroke-width="1" fill="none"/>
   </svg>
-
-  <p class="hero-tag">Domain 1 of 9 · Grand Synthesis · Phase 1</p>
+  <div class="phase-badge"><span class="pb-dot"></span><span class="pb-txt">Phase 2 · Domain 1 of 9 · Grand Synthesis</span></div>
   <h1>Sacred Geometry &amp;<br><em>Vedic Mathematics</em></h1>
   <p class="sub">Where consciousness geometrises itself — from the Bindu point of the Sri Yantra to the 16 sutras of Vedic mathematics, from Vastu's directional map to the Fibonacci spiral hidden in ancient metre</p>
   <div class="hero-stats">
@@ -214,18 +284,18 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
 <div style="background:var(--cream2);border-bottom:1px solid var(--border);padding:0 40px">
   <div style="max-width:1200px;margin:0 auto">
     <div class="domain-nav">
-      <span class="dn-pill active" onclick="scrollTo('sri-yantra',this)">Sri Yantra</span>
-      <span class="dn-pill" onclick="scrollTo('vastu',this)">Vastu Shastra</span>
-      <span class="dn-pill" onclick="scrollTo('vedic-math',this)">16 Sutras</span>
-      <span class="dn-pill" onclick="scrollTo('fibonacci',this)">Fibonacci & Chandas</span>
-      <span class="dn-pill" onclick="scrollTo('mandala',this)">Mandala & Kolam</span>
-      <span class="dn-pill" onclick="scrollTo('khadgamala',this)">Khadgamala</span>
+      <span class="dn-pill active" onclick="navTo('sri-yantra',this)">Sri Yantra</span>
+      <span class="dn-pill" onclick="navTo('vastu',this)">Vastu Shastra</span>
+      <span class="dn-pill" onclick="navTo('vedic-math',this)">16 Sutras</span>
+      <span class="dn-pill" onclick="navTo('fibonacci',this)">Fibonacci &amp; Chandas</span>
+      <span class="dn-pill" onclick="navTo('mandala',this)">Mandala &amp; Kolam</span>
+      <span class="dn-pill" onclick="navTo('khadgamala',this)">Khadgamala</span>
     </div>
   </div>
 </div>
 
 <!-- ══ 1. SRI YANTRA ══ -->
-<section id="sri-yantra" style="background:var(--navy);padding:0">
+<section id="sri-yantra">
   <div class="sy-inner">
     <div class="sy-text">
       <span class="s-label" style="color:var(--gold-l)">Subdomain 1 of 6</span>
@@ -240,44 +310,89 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
         <div class="sy-fact"><span class="fn">1</span><span class="fl">Bindu · Pure Consciousness</span></div>
       </div>
     </div>
+
     <div class="sy-diagram">
-      <!-- Animated Sri Yantra SVG -->
-      <svg width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%">
-        <!-- Outer circles -->
-        <circle cx="170" cy="170" r="158" stroke="rgba(197,160,89,0.3)" stroke-width="1"/>
-        <circle cx="170" cy="170" r="148" stroke="rgba(197,160,89,0.2)" stroke-width="1"/>
-        <!-- Lotus petals suggestion -->
-        <circle cx="170" cy="170" r="132" stroke="rgba(197,160,89,0.35)" stroke-width="1.5" stroke-dasharray="12 4"/>
-        <!-- Main triangles - 4 Shiva (upward) -->
-        <polygon points="170,42 285,234 55,234" stroke="#c5a059" stroke-width="1.5" fill="rgba(197,160,89,0.04)"/>
-        <polygon points="170,68 268,220 72,220" stroke="#c5a059" stroke-width="1" fill="none"/>
-        <polygon points="170,94 252,206 88,206" stroke="#c5a059" stroke-width="1" fill="none"/>
-        <polygon points="170,116 238,194 102,194" stroke="#c5a059" stroke-width="1" fill="none"/>
-        <!-- Main triangles - 5 Shakti (downward) -->
-        <polygon points="170,298 285,106 55,106" stroke="rgba(197,160,89,0.8)" stroke-width="1.5" fill="rgba(197,160,89,0.04)"/>
-        <polygon points="170,272 268,120 72,120" stroke="rgba(197,160,89,0.7)" stroke-width="1" fill="none"/>
-        <polygon points="170,248 252,134 88,134" stroke="rgba(197,160,89,0.6)" stroke-width="1" fill="none"/>
-        <polygon points="170,226 238,148 102,148" stroke="rgba(197,160,89,0.5)" stroke-width="1" fill="none"/>
-        <polygon points="170,206 224,160 116,160" stroke="rgba(197,160,89,0.4)" stroke-width="1" fill="none"/>
-        <!-- Bindu -->
-        <circle cx="170" cy="170" r="6" fill="var(--gold)" opacity="0.9"/>
-        <circle cx="170" cy="170" r="14" stroke="var(--gold)" stroke-width="1" fill="none" opacity="0.4"/>
-        <circle cx="170" cy="170" r="24" stroke="var(--gold)" stroke-width="0.5" fill="none" opacity="0.2"/>
-        <!-- Labels -->
-        <text x="170" y="26" fill="rgba(197,160,89,0.7)" font-size="8" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="2">BHUPURA</text>
-        <text x="170" y="175" fill="white" font-size="6" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1">BINDU</text>
-      </svg>
+      <!-- Interactive Layer Explorer -->
+      <div class="yantra-explorer">
+        <div class="yantra-canvas-wrap">
+          <svg id="yantra-svg" width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Layer 1: Bhupura (outer square — represented by outermost circle guide) -->
+            <g id="yl-1" class="yantra-layer" opacity="0.25">
+              <rect x="12" y="12" width="316" height="316" stroke="#c5a059" stroke-width="1.5" fill="none"/>
+              <rect x="20" y="20" width="300" height="300" stroke="#c5a059" stroke-width="0.8" fill="none"/>
+            </g>
+            <!-- Layer 2: 16-petal lotus -->
+            <g id="yl-2" class="yantra-layer" opacity="0.25">
+              <circle cx="170" cy="170" r="148" stroke="rgba(197,160,89,0.6)" stroke-width="1" fill="none"/>
+              <circle cx="170" cy="170" r="138" stroke="rgba(197,160,89,0.4)" stroke-width="1" stroke-dasharray="10 4" fill="none"/>
+            </g>
+            <!-- Layer 3: 8-petal lotus -->
+            <g id="yl-3" class="yantra-layer" opacity="0.25">
+              <circle cx="170" cy="170" r="122" stroke="rgba(197,160,89,0.5)" stroke-width="1.2" stroke-dasharray="14 5" fill="none"/>
+            </g>
+            <!-- Layer 4: 14 triangles -->
+            <g id="yl-4" class="yantra-layer" opacity="0.25">
+              <polygon points="170,42 285,234 55,234" stroke="#c5a059" stroke-width="1.5" fill="rgba(197,160,89,0.04)"/>
+              <polygon points="170,298 285,106 55,106" stroke="rgba(197,160,89,0.8)" stroke-width="1.5" fill="rgba(197,160,89,0.04)"/>
+            </g>
+            <!-- Layer 5: outer 10 triangles -->
+            <g id="yl-5" class="yantra-layer" opacity="0.25">
+              <polygon points="170,68 268,220 72,220" stroke="#c5a059" stroke-width="1" fill="none"/>
+              <polygon points="170,272 268,120 72,120" stroke="rgba(197,160,89,0.7)" stroke-width="1" fill="none"/>
+            </g>
+            <!-- Layer 6: inner 10 triangles -->
+            <g id="yl-6" class="yantra-layer" opacity="0.25">
+              <polygon points="170,94 252,206 88,206" stroke="#c5a059" stroke-width="1" fill="none"/>
+              <polygon points="170,248 252,134 88,134" stroke="rgba(197,160,89,0.6)" stroke-width="1" fill="none"/>
+            </g>
+            <!-- Layer 7: 8 triangles -->
+            <g id="yl-7" class="yantra-layer" opacity="0.25">
+              <polygon points="170,116 238,194 102,194" stroke="#c5a059" stroke-width="1" fill="none"/>
+              <polygon points="170,226 238,148 102,148" stroke="rgba(197,160,89,0.5)" stroke-width="1" fill="none"/>
+            </g>
+            <!-- Layer 8: primary triangle -->
+            <g id="yl-8" class="yantra-layer" opacity="0.25">
+              <polygon points="170,134 224,200 116,200" stroke="#c5a059" stroke-width="1.2" fill="rgba(197,160,89,0.06)"/>
+              <polygon points="170,206 224,160 116,160" stroke="rgba(197,160,89,0.7)" stroke-width="1.2" fill="rgba(197,160,89,0.06)"/>
+            </g>
+            <!-- Layer 9: Bindu -->
+            <g id="yl-9" class="yantra-layer" opacity="0.25">
+              <circle cx="170" cy="170" r="24" stroke="var(--gold)" stroke-width="0.5" fill="none"/>
+              <circle cx="170" cy="170" r="14" stroke="var(--gold)" stroke-width="1" fill="none" opacity="0.6"/>
+              <circle cx="170" cy="170" r="6" fill="var(--gold)" opacity="0.9"/>
+            </g>
+            <text x="170" y="26" fill="rgba(197,160,89,0.5)" font-size="7" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="2">BHUPURA</text>
+            <text x="170" y="177" fill="rgba(255,255,255,0.5)" font-size="5.5" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1">BINDU</text>
+          </svg>
+        </div>
+        <div class="sy-layer-controls">
+          <button class="sy-lbtn" data-layer="all" onclick="setYantraLayer('all',this)">All</button>
+          <button class="sy-lbtn" data-layer="1" onclick="setYantraLayer('1',this)">① Earth</button>
+          <button class="sy-lbtn" data-layer="2" onclick="setYantraLayer('2',this)">② 16 Lotus</button>
+          <button class="sy-lbtn" data-layer="3" onclick="setYantraLayer('3',this)">③ 8 Lotus</button>
+          <button class="sy-lbtn" data-layer="4" onclick="setYantraLayer('4',this)">④ 14 △</button>
+          <button class="sy-lbtn" data-layer="5" onclick="setYantraLayer('5',this)">⑤ 10 △</button>
+          <button class="sy-lbtn" data-layer="6" onclick="setYantraLayer('6',this)">⑥ 10 △</button>
+          <button class="sy-lbtn" data-layer="7" onclick="setYantraLayer('7',this)">⑦ 8 △</button>
+          <button class="sy-lbtn" data-layer="8" onclick="setYantraLayer('8',this)">⑧ Primary</button>
+          <button class="sy-lbtn" data-layer="9" onclick="setYantraLayer('9',this)">⑨ Bindu</button>
+        </div>
+        <div class="sy-layer-info" id="yantra-info">
+          <span class="sli-name">All Nine Avaranas</span>
+          <span class="sli-desc">Click a layer button to isolate and explore each enclosure</span>
+        </div>
+      </div>
 
       <div class="sy-layers">
-        <div class="sy-layer"><span class="sy-layer-num">①</span><div><div class="sy-layer-name">Bhupura</div><div class="sy-layer-desc">Earth square — the outer boundary, four gates</div></div></div>
-        <div class="sy-layer"><span class="sy-layer-num">②</span><div><div class="sy-layer-name">16-Petal Lotus</div><div class="sy-layer-desc">Fulfilment — Ashapuraka chakra</div></div></div>
-        <div class="sy-layer"><span class="sy-layer-num">③</span><div><div class="sy-layer-name">8-Petal Lotus</div><div class="sy-layer-desc">Nourishment — Sarvasamkshobhana</div></div></div>
-        <div class="sy-layer"><span class="sy-layer-num">④</span><div><div class="sy-layer-name">14 Triangles</div><div class="sy-layer-desc">Outer triangle enclosure</div></div></div>
-        <div class="sy-layer"><span class="sy-layer-num">⑤</span><div><div class="sy-layer-name">10 Triangles (outer)</div><div class="sy-layer-desc">Mid-level triangular field</div></div></div>
-        <div class="sy-layer"><span class="sy-layer-num">⑥</span><div><div class="sy-layer-name">10 Triangles (inner)</div><div class="sy-layer-desc">Inner triangular field</div></div></div>
-        <div class="sy-layer"><span class="sy-layer-num">⑦</span><div><div class="sy-layer-name">8 Triangles</div><div class="sy-layer-desc">Sarvasiddhiprada — all perfections</div></div></div>
-        <div class="sy-layer"><span class="sy-layer-num">⑧</span><div><div class="sy-layer-name">Primary Triangle</div><div class="sy-layer-desc">The innermost enclosure</div></div></div>
-        <div class="sy-layer"><span class="sy-layer-num">⑨</span><div><div class="sy-layer-name">Bindu · बिन्दु</div><div class="sy-layer-desc">Dimensionless point — pure consciousness</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('1',null);updateInfo(1)"><span class="sy-layer-num">①</span><div><div class="sy-layer-name">Bhupura</div><div class="sy-layer-desc">Earth square — outer boundary, four gates</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('2',null);updateInfo(2)"><span class="sy-layer-num">②</span><div><div class="sy-layer-name">16-Petal Lotus</div><div class="sy-layer-desc">Fulfilment — Ashapuraka chakra</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('3',null);updateInfo(3)"><span class="sy-layer-num">③</span><div><div class="sy-layer-name">8-Petal Lotus</div><div class="sy-layer-desc">Nourishment — Sarvasamkshobhana</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('4',null);updateInfo(4)"><span class="sy-layer-num">④</span><div><div class="sy-layer-name">14 Triangles</div><div class="sy-layer-desc">Outer triangle enclosure — Sarvasa(ubhāgyadāyaka</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('5',null);updateInfo(5)"><span class="sy-layer-num">⑤</span><div><div class="sy-layer-name">10 Triangles (outer)</div><div class="sy-layer-desc">Mid-level triangular field — Sarvartha(sādhaka</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('6',null);updateInfo(6)"><span class="sy-layer-num">⑥</span><div><div class="sy-layer-name">10 Triangles (inner)</div><div class="sy-layer-desc">Inner triangular field — Sarvarakṣākara</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('7',null);updateInfo(7)"><span class="sy-layer-num">⑦</span><div><div class="sy-layer-name">8 Triangles</div><div class="sy-layer-desc">Sarvasiddhiprada — all perfections bestowed</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('8',null);updateInfo(8)"><span class="sy-layer-num">⑧</span><div><div class="sy-layer-name">Primary Triangle</div><div class="sy-layer-desc">Sarvanandamaya — bliss of all things</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('9',null);updateInfo(9)"><span class="sy-layer-num">⑨</span><div><div class="sy-layer-name">Bindu · बिन्दु</div><div class="sy-layer-desc">Dimensionless point — pure consciousness</div></div></div>
       </div>
     </div>
   </div>
@@ -289,20 +404,79 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
     <span class="s-label">Subdomain 2 of 6</span>
     <h2 class="s-title">Vastu Shastra —<br><em>Sacred Space Science</em></h2>
     <p class="s-intro">Vastu Shastra is the Vedic science of space — a complete system for aligning built environments with the directional energies of the cosmos. Each of the eight cardinal and intercardinal directions is governed by a specific deity, element, and quality of energy. The Vastu Purusha Mandala is a 81-square (9×9) grid encoding this cosmic plan onto every building, home, and temple.</p>
-    <div class="vastu-grid">
-      <div class="vastu-card"><div class="vc-dir">North</div><span class="vc-dev">UTTARA</span><div class="vc-deity">Kubera · God of Wealth</div><div class="vc-element">Water element · Prosperity, abundance, income</div></div>
-      <div class="vastu-card"><div class="vc-dir">North-East</div><span class="vc-dev">ISHANYA</span><div class="vc-deity">Ishana · Shiva aspect</div><div class="vc-element">Water + Ether · Wisdom, prayer, meditation</div></div>
-      <div class="vastu-card"><div class="vc-dir">East</div><span class="vc-dev">PURVA</span><div class="vc-deity">Indra · King of Gods</div><div class="vc-element">Air element · Health, social relationships, success</div></div>
-      <div class="vastu-card"><div class="vc-dir">South-East</div><span class="vc-dev">AGNEYA</span><div class="vc-deity">Agni · Fire God</div><div class="vc-element">Fire element · Energy, digestion, vitality, kitchen</div></div>
-      <div class="vastu-card"><div class="vc-dir">South</div><span class="vc-dev">DAKSHINA</span><div class="vc-deity">Yama · Lord of Dharma</div><div class="vc-element">Earth element · Stability, career, ancestors</div></div>
-      <div class="vastu-card"><div class="vc-dir">South-West</div><span class="vc-dev">NAIRITI</span><div class="vc-deity">Nirriti · Dissolution</div><div class="vc-element">Earth + Water · Relationships, master bedroom</div></div>
-      <div class="vastu-card"><div class="vc-dir">West</div><span class="vc-dev">PASHCHIMA</span><div class="vc-deity">Varuna · Water God</div><div class="vc-element">Water element · Gains, children, creativity</div></div>
-      <div class="vastu-card"><div class="vc-dir">North-West</div><span class="vc-dev">VAYAVYA</span><div class="vc-deity">Vayu · Wind God</div><div class="vc-element">Air element · Support, banking, guest area</div></div>
-      <div class="vastu-center-card"><div class="vc-dir" style="font-size:2rem">Centre</div><div><span class="vc-dev" style="color:var(--gold)">BRAHMASTHANA</span><div class="vc-deity">Brahma · The Creator</div><div class="vc-element">All elements unified · The sacred centre — must be open, unobstructed. The Vastu Purusha rests here. This is the body's navel point — the Manipura of the building.</div></div></div>
-    </div>
-    <div style="margin-top:40px;padding:28px 32px;background:#fff;border:1px solid var(--border);border-left:3px solid var(--gold)">
-      <strong style="font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold)">Mathematical Basis</strong>
-      <p style="margin-top:10px;font-size:1rem;color:var(--muted);line-height:1.75">The Vastu Purusha Mandala uses a 9×9 = 81 square grid. The central Brahmasthana occupies 9 of these squares. The four cardinal directions receive 8 squares each. The four intercardinal directions receive 4 squares each. Total: 9 + (4×8) + (4×4) + (4×3) = 81. This is not arbitrary — 81 = 3⁴ = the fourth power of the Vedic sacred number 3 (Trimurti, three Vedic fires, three states of consciousness).</p>
+
+    <div class="vastu-layout">
+      <!-- Interactive Vastu Compass -->
+      <div class="vastu-compass-wrap">
+        <div class="vastu-compass" id="vastu-compass">
+          <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer circle -->
+            <circle cx="180" cy="180" r="172" fill="var(--navy2)" stroke="rgba(197,160,89,0.4)" stroke-width="1.5"/>
+            <circle cx="180" cy="180" r="120" fill="rgba(15,34,64,0.5)" stroke="rgba(197,160,89,0.25)" stroke-width="1"/>
+            <!-- Direction segments - clickable -->
+            <!-- N -->
+            <path d="M180,180 L155,60 A124,124 0 0,1 205,60 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" data-dir="North" data-deity="Kubera" data-elem="Water · Prosperity &amp; wealth" style="cursor:pointer" onmouseenter="showVastuTip(event,'North','UTTARA','Kubera · God of Wealth','Water element · Prosperity, abundance, income')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('north')"/>
+            <!-- NE -->
+            <path d="M180,180 L260,100 A124,124 0 0,0 205,60 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'North-East','ISHANYA','Ishana · Shiva','Water+Ether · Wisdom &amp; prayer')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('north-east')"/>
+            <!-- E -->
+            <path d="M180,180 L300,155 A124,124 0 0,0 260,100 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'East','PURVA','Indra · King of Gods','Air element · Health &amp; success')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('east')"/>
+            <!-- SE -->
+            <path d="M180,180 L260,260 A124,124 0 0,0 300,155 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'South-East','AGNEYA','Agni · Fire God','Fire element · Energy &amp; vitality')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('south-east')"/>
+            <!-- S -->
+            <path d="M180,180 L155,300 A124,124 0 0,0 205,300 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'South','DAKSHINA','Yama · Lord of Dharma','Earth element · Stability &amp; career')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('south')"/>
+            <!-- SW -->
+            <path d="M180,180 L100,260 A124,124 0 0,0 155,300 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'South-West','NAIRITI','Nirriti · Dissolution','Earth+Water · Relationships')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('south-west')"/>
+            <!-- W -->
+            <path d="M180,180 L60,155 A124,124 0 0,0 100,260 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'West','PASHCHIMA','Varuna · Water God','Water element · Gains &amp; creativity')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('west')"/>
+            <!-- NW -->
+            <path d="M180,180 L155,60 A124,124 0 0,0 60,155 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'North-West','VAYAVYA','Vayu · Wind God','Air element · Support &amp; banking')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('north-west')"/>
+            <!-- Centre -->
+            <circle cx="180" cy="180" r="36" fill="rgba(197,160,89,0.15)" stroke="var(--gold)" stroke-width="1.5" style="cursor:pointer" onmouseenter="showVastuTip(event,'Centre','BRAHMASTHANA','Brahma · The Creator','All elements · Sacred unobstructed centre')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('centre')"/>
+            <!-- Direction labels -->
+            <text x="180" y="34" fill="var(--gold)" font-size="9" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="1.5">N</text>
+            <text x="180" y="332" fill="var(--gold)" font-size="9" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="1.5">S</text>
+            <text x="328" y="185" fill="var(--gold)" font-size="9" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="1.5">E</text>
+            <text x="32" y="185" fill="var(--gold)" font-size="9" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="1.5">W</text>
+            <text x="292" y="72" fill="rgba(197,160,89,0.7)" font-size="7" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1">NE</text>
+            <text x="292" y="298" fill="rgba(197,160,89,0.7)" font-size="7" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1">SE</text>
+            <text x="68" y="298" fill="rgba(197,160,89,0.7)" font-size="7" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1">SW</text>
+            <text x="68" y="72" fill="rgba(197,160,89,0.7)" font-size="7" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1">NW</text>
+            <!-- Centre label -->
+            <text x="180" y="177" fill="var(--gold)" font-size="7" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1" font-weight="700">BRAHMA</text>
+            <text x="180" y="187" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle" font-family="Montserrat,sans-serif">STHANA</text>
+            <!-- Cross lines -->
+            <line x1="180" y1="56" x2="180" y2="124" stroke="rgba(197,160,89,0.2)" stroke-width="0.5"/>
+            <line x1="180" y1="236" x2="180" y2="304" stroke="rgba(197,160,89,0.2)" stroke-width="0.5"/>
+            <line x1="56" y1="180" x2="124" y2="180" stroke="rgba(197,160,89,0.2)" stroke-width="0.5"/>
+            <line x1="236" y1="180" x2="304" y2="180" stroke="rgba(197,160,89,0.2)" stroke-width="0.5"/>
+          </svg>
+          <div class="vc-tooltip" id="vastu-tip">
+            <span class="vct-dir" id="vtt-dir"></span>
+            <span class="vct-deity" id="vtt-dev"></span>
+            <span id="vtt-deity"></span><br>
+            <span id="vtt-elem" style="font-size:0.82rem;color:rgba(255,255,255,0.6)"></span>
+          </div>
+        </div>
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:12px">Hover or click a direction to highlight</p>
+      </div>
+
+      <div>
+        <div class="vastu-grid" id="vastu-grid">
+          <div class="vastu-card" id="vc-north"><div class="vc-dir">North</div><span class="vc-dev">UTTARA</span><div class="vc-deity">Kubera · God of Wealth</div><div class="vc-element">Water element · Prosperity, abundance, income</div></div>
+          <div class="vastu-card" id="vc-north-east"><div class="vc-dir">North-East</div><span class="vc-dev">ISHANYA</span><div class="vc-deity">Ishana · Shiva aspect</div><div class="vc-element">Water + Ether · Wisdom, prayer, meditation</div></div>
+          <div class="vastu-card" id="vc-east"><div class="vc-dir">East</div><span class="vc-dev">PURVA</span><div class="vc-deity">Indra · King of Gods</div><div class="vc-element">Air element · Health, social relationships, success</div></div>
+          <div class="vastu-card" id="vc-south-east"><div class="vc-dir">South-East</div><span class="vc-dev">AGNEYA</span><div class="vc-deity">Agni · Fire God</div><div class="vc-element">Fire element · Energy, digestion, vitality, kitchen</div></div>
+          <div class="vastu-card" id="vc-south"><div class="vc-dir">South</div><span class="vc-dev">DAKSHINA</span><div class="vc-deity">Yama · Lord of Dharma</div><div class="vc-element">Earth element · Stability, career, ancestors</div></div>
+          <div class="vastu-card" id="vc-south-west"><div class="vc-dir">South-West</div><span class="vc-dev">NAIRITI</span><div class="vc-deity">Nirriti · Dissolution</div><div class="vc-element">Earth + Water · Relationships, master bedroom</div></div>
+          <div class="vastu-card" id="vc-west"><div class="vc-dir">West</div><span class="vc-dev">PASHCHIMA</span><div class="vc-deity">Varuna · Water God</div><div class="vc-element">Water element · Gains, children, creativity</div></div>
+          <div class="vastu-card" id="vc-north-west"><div class="vc-dir">North-West</div><span class="vc-dev">VAYAVYA</span><div class="vc-deity">Vayu · Wind God</div><div class="vc-element">Air element · Support, banking, guest area</div></div>
+          <div class="vastu-center-card" id="vc-centre"><div class="vc-dir" style="font-size:2rem">Centre</div><div><span class="vc-dev" style="color:var(--gold)">BRAHMASTHANA</span><div class="vc-deity">Brahma · The Creator</div><div class="vc-element">All elements unified · The sacred centre — must be open, unobstructed. The Vastu Purusha rests here. This is the body's navel point — the Manipura of the building.</div></div></div>
+        </div>
+        <div style="margin-top:32px;padding:24px 28px;background:#fff;border:1px solid var(--border);border-left:3px solid var(--gold)">
+          <strong style="font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold)">Mathematical Basis</strong>
+          <p style="margin-top:10px;font-size:1rem;color:var(--muted);line-height:1.75">The Vastu Purusha Mandala uses a 9×9 = 81 square grid. The central Brahmasthana occupies 9 of these squares (3×3 centre block). The four cardinal zones together account for 44 squares. The four intercardinal corners take up 16 squares. Total: 9 + 44 + 16 + 12 peripheral = 81. This is not arbitrary — 81 = 3⁴ = the fourth power of the Vedic sacred number 3 (Trimurti, three Vedic fires, three states of consciousness).</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -318,24 +492,75 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
 </section>
 
 <!-- ══ 4. FIBONACCI & CHANDAS ══ -->
-<section id="fibonacci" style="background:var(--navy);padding:0">
+<section id="fibonacci">
   <div class="fib-inner">
     <span class="s-label" style="color:var(--gold-l)">Subdomain 4 of 6</span>
     <h2 class="s-title" style="color:#fff">Fibonacci &amp; Chandas —<br><em>The Hidden Sequence</em></h2>
     <p class="s-intro" style="color:rgba(255,255,255,.65)">The Fibonacci sequence — 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144... — was documented by the Vedic mathematician Virahanka (c. 700 CE), Gopala (c. 1135 CE), and Hemachandra (c. 1150 CE) in the context of Sanskrit prosody (Chandas). Pingala's Chandashaastra (c. 300 BCE) contains the earliest known description of what we now call the Fibonacci sequence, embedded in the study of poetic metres.</p>
 
-    <div class="sequence-bar">
-      <span class="seq-num">1</span><span class="seq-arrow">+</span>
-      <span class="seq-num">1</span><span class="seq-arrow">=</span>
-      <span class="seq-num">2</span><span class="seq-arrow">+</span>
-      <span class="seq-num">3</span><span class="seq-arrow">=</span>
-      <span class="seq-num">5</span><span class="seq-arrow">+</span>
-      <span class="seq-num">8</span><span class="seq-arrow">=</span>
-      <span class="seq-num">13</span><span class="seq-arrow">→</span>
-      <span class="seq-num" style="background:rgba(197,160,89,.15)">φ = 1.618...</span>
+    <div class="fib-spiral-wrap">
+      <!-- Fibonacci Spiral SVG -->
+      <div class="fib-spiral-svg">
+        <svg width="340" height="280" viewBox="0 0 340 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Grid squares proportional to Fibonacci: 1,1,2,3,5,8,13 -->
+          <!-- Scale: 1 unit = 14px, base at centre-ish -->
+          <!-- 13 square: top-left large -->
+          <rect x="10" y="10" width="182" height="182" fill="rgba(197,160,89,0.04)" stroke="rgba(197,160,89,0.35)" stroke-width="1"/>
+          <text x="62" y="105" fill="rgba(197,160,89,0.4)" font-size="20" font-family="Playfair Display,serif" text-anchor="middle">13</text>
+          <!-- 8 square: to the right of 13 -->
+          <rect x="192" y="70" width="112" height="112" fill="rgba(197,160,89,0.06)" stroke="rgba(197,160,89,0.35)" stroke-width="1"/>
+          <text x="248" y="130" fill="rgba(197,160,89,0.4)" font-size="14" font-family="Playfair Display,serif" text-anchor="middle">8</text>
+          <!-- 5 square: below 8 -->
+          <rect x="192" y="182" width="70" height="70" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.4)" stroke-width="1"/>
+          <text x="227" y="220" fill="rgba(197,160,89,0.5)" font-size="11" font-family="Playfair Display,serif" text-anchor="middle">5</text>
+          <!-- 3 square: left of 5 -->
+          <rect x="150" y="224" width="42" height="42" fill="rgba(197,160,89,0.1)" stroke="rgba(197,160,89,0.45)" stroke-width="1"/>
+          <text x="171" y="248" fill="rgba(197,160,89,0.5)" font-size="9" font-family="Playfair Display,serif" text-anchor="middle">3</text>
+          <!-- 2 square: above 3 -->
+          <rect x="150" y="196" width="28" height="28" fill="rgba(197,160,89,0.12)" stroke="rgba(197,160,89,0.5)" stroke-width="1"/>
+          <text x="164" y="213" fill="rgba(197,160,89,0.6)" font-size="8" font-family="Playfair Display,serif" text-anchor="middle">2</text>
+          <!-- 1+1 squares -->
+          <rect x="150" y="182" width="14" height="14" fill="rgba(197,160,89,0.18)" stroke="rgba(197,160,89,0.6)" stroke-width="1"/>
+          <rect x="164" y="182" width="14" height="14" fill="rgba(197,160,89,0.22)" stroke="rgba(197,160,89,0.7)" stroke-width="1"/>
+          <!-- Spiral arc -->
+          <path d="M 164,182 Q 192,182 192,210 Q 192,252 150,252 Q 94,252 94,196 Q 94,70 192,70 Q 304,70 304,182" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- φ annotation -->
+          <text x="260" y="58" fill="var(--gold)" font-size="13" font-family="Playfair Display,serif" font-style="italic">φ = 1.618...</text>
+          <line x1="248" y1="64" x2="248" y2="70" stroke="rgba(197,160,89,0.5)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div>
+        <div class="sequence-bar" style="margin-top:0;margin-bottom:24px">
+          <span class="seq-num">1</span><span class="seq-arrow">→</span>
+          <span class="seq-num">1</span><span class="seq-arrow">→</span>
+          <span class="seq-num">2</span><span class="seq-arrow">→</span>
+          <span class="seq-num">3</span><span class="seq-arrow">→</span>
+          <span class="seq-num">5</span><span class="seq-arrow">→</span>
+          <span class="seq-num">8</span><span class="seq-arrow">→</span>
+          <span class="seq-num">13</span><span class="seq-arrow">→</span>
+          <span class="seq-num" style="background:rgba(197,160,89,.15)">φ</span>
+        </div>
+        <!-- Chandas metre table -->
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-l);margin-bottom:10px">Chandas — Fibonacci in Sanskrit Metre</p>
+        <table class="chandas-table">
+          <thead><tr><th>Syllables (n)</th><th>Metre Name</th><th>Valid patterns</th><th>Vedic name</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Ukta</td><td class="td-fib">1</td><td>—</td></tr>
+            <tr><td>2</td><td>Atyukta</td><td class="td-fib">2</td><td>Gāyatrī basis</td></tr>
+            <tr><td>3</td><td>Madhya</td><td class="td-fib">3</td><td>—</td></tr>
+            <tr><td>4</td><td>Pratiṣṭhā</td><td class="td-fib">5</td><td>Anuṣṭubh basis</td></tr>
+            <tr><td>5</td><td>Supratiṣṭhā</td><td class="td-fib">8</td><td>—</td></tr>
+            <tr><td>6</td><td>Gāyatrī</td><td class="td-fib">13</td><td>Gāyatrī mantra</td></tr>
+            <tr><td>7</td><td>Uṣṇik</td><td class="td-fib">21</td><td>—</td></tr>
+            <tr><td>8</td><td>Anuṣṭubh</td><td class="td-fib">34</td><td>Epic metre (Mahābhārata)</td></tr>
+            <tr><td>9</td><td>Bṛhatī</td><td class="td-fib">55</td><td>—</td></tr>
+            <tr><td>10</td><td>Paṅkti</td><td class="td-fib">89</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div class="fib-grid" style="margin-top:48px">
+    <div class="fib-grid">
       <div class="fib-card">
         <div class="fc-ratio">1:1.618</div>
         <span class="fc-name">The Golden Ratio · φ (Phi)</span>
@@ -344,17 +569,17 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
       <div class="fib-card">
         <div class="fc-ratio">Matra</div>
         <span class="fc-name">Chandas — Vedic Metre Science</span>
-        <div class="fc-body">Pingala's <em style="color:var(--gold)">Chandashaastra</em> classifies all Sanskrit poetic metres using binary sequences of short (laghu) and long (guru) syllables. The count of valid metres of each length follows the Fibonacci sequence exactly: 2, 3, 5, 8, 13, 21... This is not coincidence — it is the natural mathematics of sequential choice embedded in the structure of language.</div>
+        <div class="fc-body">Pingala's <em style="color:var(--gold)">Chandashaastra</em> classifies all Sanskrit poetic metres using binary sequences of short (laghu) and long (guru) syllables. The count of valid metres of each length follows the Fibonacci sequence exactly: 2, 3, 5, 8, 13, 21... This is the natural mathematics of sequential choice embedded in the structure of language itself.</div>
       </div>
       <div class="fib-card">
         <div class="fc-ratio">108</div>
         <span class="fc-name">Fibonacci in the Vedic Cosmos</span>
-        <div class="fc-body">The Vedic sacred numbers 1, 3, 5, 8, 13, 21, 34, 55, 89, 144 all appear in the structure of Vedic ritual, architecture, and cosmology. The number 108 = 4 × 27 = 4 × 3³, encoding the Fibonacci-adjacent 3-sequence at the heart of all Vedic sacred mathematics. The 108 Karanas, 108 Upanishads, and 108 beads of the Mala all encode this relationship.</div>
+        <div class="fc-body">Fibonacci numbers 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 all appear in Vedic ritual, architecture, and cosmology. The number 108 = 4 × 27 = 4 × 3³, encoding the Fibonacci-adjacent 3-sequence at the heart of all Vedic sacred mathematics. The 108 Karanas, 108 Upanishads, and 108 beads of the Mala all encode this relationship.</div>
       </div>
       <div class="fib-card">
         <div class="fc-ratio">√2, √3</div>
         <span class="fc-name">Sulba Sutras — Irrational Geometry</span>
-        <div class="fc-body">The Sulba Sutras (c. 800–600 BCE) — appendices to the Kalpa texts — contain the earliest known proofs of the Pythagorean theorem and precise calculations of √2 (1.41421356...) accurate to five decimal places. The Baudhayana Sulba Sutra states: "The diagonal of a square produces double the area of the original square" — the Pythagorean theorem, 300 years before Pythagoras.</div>
+        <div class="fc-body">The Sulba Sutras (c. 800–600 BCE) contain the earliest known proofs of the Pythagorean theorem and precise calculations of √2 (1.41421356...) accurate to five decimal places. The Baudhayana Sulba Sutra states the theorem 300 years before Pythagoras: the diagonal of a square produces double the area of the original.</div>
       </div>
     </div>
   </div>
@@ -400,24 +625,16 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
         <div class="kc-body">
           <h3>Vastu Mandala</h3>
           <span class="kc-sub">Square within circle · Earth and cosmos</span>
-          <p>The Vastu Purusha Mandala encodes the squaring of the circle — the reconciliation of earth (square) with cosmos (circle). The 9×9 = 81 square grid maps directional energies onto architectural space, encoding the same mathematical structure found in Celtic mandalas, Islamic geometric art, and Renaissance architectural theory.</p>
+          <p>The Vastu Purusha Mandala encodes the squaring of the circle — the reconciliation of earth (square) with cosmos (circle). The 9×9 = 81 square grid maps directional energies onto architectural space, encoding mathematical structure found in Celtic mandalas, Islamic geometric art, and Renaissance architectural theory.</p>
           <span class="kc-math">Grid: 9×9 = 81 squares · 3⁴ structure</span>
         </div>
       </div>
       <div class="kolam-card">
         <div class="kc-diagram">
           <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-            <!-- Kolam dot grid and loop pattern -->
-            <circle cx="40" cy="40" r="3" fill="rgba(197,160,89,0.6)"/>
-            <circle cx="60" cy="40" r="3" fill="rgba(197,160,89,0.6)"/>
-            <circle cx="80" cy="40" r="3" fill="rgba(197,160,89,0.6)"/>
-            <circle cx="40" cy="60" r="3" fill="rgba(197,160,89,0.6)"/>
-            <circle cx="60" cy="60" r="3" fill="rgba(197,160,89,0.6)"/>
-            <circle cx="80" cy="60" r="3" fill="rgba(197,160,89,0.6)"/>
-            <circle cx="40" cy="80" r="3" fill="rgba(197,160,89,0.6)"/>
-            <circle cx="60" cy="80" r="3" fill="rgba(197,160,89,0.6)"/>
-            <circle cx="80" cy="80" r="3" fill="rgba(197,160,89,0.6)"/>
-            <!-- Kolam loop -->
+            <circle cx="40" cy="40" r="3" fill="rgba(197,160,89,0.6)"/><circle cx="60" cy="40" r="3" fill="rgba(197,160,89,0.6)"/><circle cx="80" cy="40" r="3" fill="rgba(197,160,89,0.6)"/>
+            <circle cx="40" cy="60" r="3" fill="rgba(197,160,89,0.6)"/><circle cx="60" cy="60" r="3" fill="rgba(197,160,89,0.6)"/><circle cx="80" cy="60" r="3" fill="rgba(197,160,89,0.6)"/>
+            <circle cx="40" cy="80" r="3" fill="rgba(197,160,89,0.6)"/><circle cx="60" cy="80" r="3" fill="rgba(197,160,89,0.6)"/><circle cx="80" cy="80" r="3" fill="rgba(197,160,89,0.6)"/>
             <path d="M 60 28 C 80 28 92 40 92 60 C 92 80 80 92 60 92 C 40 92 28 80 28 60 C 28 40 40 28 60 28" stroke="#c5a059" stroke-width="1.5" fill="none"/>
             <path d="M 60 38 C 74 38 82 46 82 60 C 82 74 74 82 60 82 C 46 82 38 74 38 60 C 38 46 46 38 60 38" stroke="rgba(197,160,89,0.5)" stroke-width="1" fill="none"/>
           </svg>
@@ -425,14 +642,13 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
         <div class="kc-body">
           <h3>Kolam — Threshold Geometry</h3>
           <span class="kc-sub">Tamil Nadu daily ritual · Living mathematics</span>
-          <p>The Tamil Kolam (also: Rangoli in the North) is drawn daily at home thresholds. Each pattern is constructed by drawing a continuous line that winds around a grid of dots without lifting the hand. This is equivalent to finding Eulerian paths in graph theory — a connection only formalised by Western mathematics in the 18th century.</p>
+          <p>The Tamil Kolam is drawn daily at home thresholds. Each pattern is constructed by drawing a continuous line that winds around a grid of dots without lifting the hand — equivalent to finding Eulerian paths in graph theory, a connection formalised by Western mathematics only in the 18th century.</p>
           <span class="kc-math">Eulerian path theory · Graph connectivity</span>
         </div>
       </div>
       <div class="kolam-card">
         <div class="kc-diagram">
           <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-            <!-- Fractal-like lotus -->
             <circle cx="60" cy="60" r="44" stroke="rgba(197,160,89,0.3)" stroke-width="1" fill="none"/>
             <ellipse cx="60" cy="32" rx="12" ry="20" stroke="#c5a059" stroke-width="1" fill="rgba(197,160,89,0.1)" transform="rotate(0 60 60)"/>
             <ellipse cx="60" cy="32" rx="12" ry="20" stroke="#c5a059" stroke-width="1" fill="rgba(197,160,89,0.1)" transform="rotate(45 60 60)"/>
@@ -448,10 +664,27 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
         <div class="kc-body">
           <h3>Ashta-dala Padma</h3>
           <span class="kc-sub">Eight-petal lotus · Dihedral group D₈</span>
-          <p>The eight-petalled lotus appears across Indian temple architecture, tantric yantras, and Kolam patterns. Its symmetry group D₈ (dihedral group of order 16) — eight rotational and eight reflective symmetries — is one of the most commonly occurring symmetry groups in nature, from flowers to protein structures.</p>
+          <p>The eight-petalled lotus appears across Indian temple architecture, tantric yantras, and Kolam patterns. Its symmetry group D₈ (order 16) — eight rotational and eight reflective symmetries — is one of the most commonly occurring symmetry groups in nature, from flowers to protein structures.</p>
           <span class="kc-math">Symmetry Group: D₈ · 16 symmetries</span>
         </div>
       </div>
+    </div>
+
+    <!-- Kolam Pattern Generator (Phase 2) -->
+    <div class="kolam-generator">
+      <h3 class="kg-title">Kolam Pattern Explorer</h3>
+      <span class="kg-sub">Phase 2 · Interactive Eulerian path patterns</span>
+      <div class="kg-controls">
+        <button class="kg-btn active" onclick="showKolam(1,this)">3×3 Basic</button>
+        <button class="kg-btn" onclick="showKolam(2,this)">5×5 Neli</button>
+        <button class="kg-btn" onclick="showKolam(3,this)">Puvvulu (Flower)</button>
+        <button class="kg-btn" onclick="showKolam(4,this)">Ashtadala</button>
+      </div>
+      <div class="kg-canvas">
+        <svg id="kolam-gen-svg" width="280" height="280" viewBox="-20 -20 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        </svg>
+      </div>
+      <p class="kg-desc" id="kolam-desc">3×3 basic Kolam — 9-dot grid with single continuous loop. Symmetry group D₄. One of the simplest Eulerian circuit patterns in traditional Tamil practice.</p>
     </div>
   </div>
 </section>
@@ -484,22 +717,39 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
       </div>
     </div>
 
-    <!-- Cross-reference table -->
-    <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy2);margin-bottom:20px">Khadgamala × 108 Karanas — Cross-Reference</h3>
-    <div style="overflow-x:auto">
-      <table class="cross-ref-table">
-        <thead>
-          <tr>
-            <th>Karana #</th>
-            <th>Karana Name</th>
-            <th>Āvaraṇa</th>
-            <th>Khadgamala Station</th>
-            <th>Geometric Correspondence</th>
-            <th>Cosmic Principle</th>
-          </tr>
-        </thead>
-        <tbody id="khadg-table"></tbody>
-      </table>
+    <!-- Full 108-row Khadgamala table (Phase 2) -->
+    <div class="khadg-table-section">
+      <div class="khadg-table-header">
+        <h3 class="khadg-table-title">Khadgamala × 108 Karanas — Complete Cross-Reference</h3>
+        <div class="khadg-filter">
+          <button class="kf-btn active" onclick="filterKhadg('all',this)">All 108</button>
+          <button class="kf-btn" onclick="filterKhadg('9',this)">Āv. 9</button>
+          <button class="kf-btn" onclick="filterKhadg('8',this)">Āv. 8</button>
+          <button class="kf-btn" onclick="filterKhadg('7',this)">Āv. 7</button>
+          <button class="kf-btn" onclick="filterKhadg('6',this)">Āv. 6</button>
+          <button class="kf-btn" onclick="filterKhadg('5',this)">Āv. 5</button>
+          <button class="kf-btn" onclick="filterKhadg('4',this)">Āv. 4</button>
+          <button class="kf-btn" onclick="filterKhadg('3',this)">Āv. 3</button>
+          <button class="kf-btn" onclick="filterKhadg('2',this)">Āv. 2</button>
+          <button class="kf-btn" onclick="filterKhadg('1',this)">Bindu</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="cross-ref-table">
+          <thead>
+            <tr>
+              <th style="text-align:center">K#</th>
+              <th>Karana Name</th>
+              <th style="text-align:center">Āv.</th>
+              <th>Khadgamala Station</th>
+              <th>Geometric Zone</th>
+              <th>Cosmic Principle</th>
+            </tr>
+          </thead>
+          <tbody id="khadg-table"></tbody>
+        </table>
+      </div>
+      <button class="show-all-btn" id="show-all-btn" onclick="toggleShowAll()">Show All 108 Karanas ↓</button>
     </div>
   </div>
 </section>
@@ -507,7 +757,12 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
 <!-- CLOSING QUOTE -->
 <div class="gold-quote">
   <p>"The universe geometrises itself into consciousness. The Sri Yantra is that geometry. The Vedic mathematician knows it by number, the Vastu architect by direction, the Kolam artist by line, and the Karana dancer by the movement of the body in space. All four are saying the same thing."</p>
-  <cite>— Naredla Rama Chandra · Grand Synthesis · Domain 1</cite>
+  <cite>— Naredla Rama Chandra · Grand Synthesis · Domain 1 · Phase 2</cite>
+</div>
+
+<!-- Phase 2 strip -->
+<div class="phase2-strip">
+  <p>Domain 1 of 9 complete · <span>Phase 2 active</span> · Next: Domain 2 — Natya Shastra Architecture · <span>natyashastra.culturalmusings.com</span></p>
 </div>
 
 <!-- FOOTER -->
@@ -521,21 +776,21 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
     <a href="https://unifiedtheory.culturalmusings.com">Unified Theory</a>
     <a href="https://github.com/ramachandra1975">GitHub</a>
   </div>
-  <p class="footer-copy">© Naredla Rama Chandra · culturalmusings.com · Domain 1 of 9 · Grand Synthesis · Phase 1</p>
+  <p class="footer-copy">© Naredla Rama Chandra · culturalmusings.com · Domain 1 of 9 · Grand Synthesis · Phase 2</p>
 </footer>
 
 <script>
-/* ── Scroll to section ── */
-function scrollTo(id, pill) {
+document.addEventListener('DOMContentLoaded', function() {
+
+/* ── Nav ── */
+window.navTo = function(id, pill) {
   var el = document.getElementById(id);
   if (!el) return;
-  var top = el.getBoundingClientRect().top + window.pageYOffset - 64;
-  window.scrollTo({ top: top, behavior: 'smooth' });
+  window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 64, behavior: 'smooth' });
   document.querySelectorAll('.dn-pill').forEach(function(p){ p.classList.remove('active'); });
   if (pill) pill.classList.add('active');
-}
+};
 
-/* Active pill on scroll */
 window.addEventListener('scroll', function () {
   var sections = ['sri-yantra','vastu','vedic-math','fibonacci','mandala','khadgamala'];
   var pills = document.querySelectorAll('.dn-pill');
@@ -547,24 +802,88 @@ window.addEventListener('scroll', function () {
   pills.forEach(function(p, i) { p.classList.toggle('active', i === current); });
 }, { passive: true });
 
-/* ── 16 Sutras data ── */
+/* ── Sri Yantra Layer Explorer ── */
+var YANTRA_INFO = {
+  'all': { name: 'All Nine Avaranas', desc: 'Click a layer button to isolate and explore each enclosure' },
+  '1': { name: 'Āvaraṇa 9 — Bhupura', desc: 'The outer earth square with four gates (dvāras). Governs: stability, physical foundation, earth element.' },
+  '2': { name: 'Āvaraṇa 8 — 16-Petal Lotus', desc: 'Sixteen petals of fulfilment. Houses the Nityā Shaktis — the sixteen lunar goddesses of desire satisfied.' },
+  '3': { name: 'Āvaraṇa 7 — 8-Petal Lotus', desc: 'Eight petals of nourishment. The Vāgdevīs — eight speech-goddesses — reside here, governing creative sound.' },
+  '4': { name: 'Āvaraṇa 6 — 14 Triangles', desc: 'The outer triangle ring — Sarvasaubhāgyadāyaka — bestower of all good fortune. 14 Shaktis of outer manifestation.' },
+  '5': { name: 'Āvaraṇa 5 — 10 Triangles (outer)', desc: 'Sarvathasādhaka — fulfiller of all purposes. The 10 Shaktis of action and will in the outer field.' },
+  '6': { name: 'Āvaraṇa 4 — 10 Triangles (inner)', desc: 'Sarvarakṣākara — giver of all protection. The inner 10 Shaktis guarding the sacred centre.' },
+  '7': { name: 'Āvaraṇa 3 — 8 Triangles', desc: 'Sarvasiddhiprada — bestower of all perfections. Eight Shaktis of highest attainment.' },
+  '8': { name: 'Āvaraṇa 2 — Primary Triangle', desc: 'Sarvanandamaya — filled with all bliss. The innermost triangle containing the three root Shaktis: Kāmeshvarī, Vajreshvarī, Bhagamālinī.' },
+  '9': { name: 'Āvaraṇa 1 — Bindu · बिन्दु', desc: 'The dimensionless point. Pure consciousness. Lalitā Mahātripurasundarī. Karana 108. The final station of both the Khadgamala journey and the Bharata dancer.' }
+};
+
+window.setYantraLayer = function(layer, btn) {
+  var layers = document.querySelectorAll('.yantra-layer');
+  if (layer === 'all') {
+    layers.forEach(function(l) { l.style.opacity = '1'; });
+  } else {
+    layers.forEach(function(l, i) {
+      l.style.opacity = (i + 1 === parseInt(layer)) ? '1' : '0.08';
+    });
+  }
+  if (btn) {
+    document.querySelectorAll('.sy-lbtn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+  }
+  var info = YANTRA_INFO[layer] || YANTRA_INFO['all'];
+  document.querySelector('#yantra-info .sli-name').textContent = info.name;
+  document.querySelector('#yantra-info .sli-desc').textContent = info.desc;
+  document.querySelectorAll('.sy-layer').forEach(function(l, i){
+    l.classList.toggle('active-layer', layer !== 'all' && i + 1 === parseInt(layer));
+  });
+};
+window.updateInfo = function(n) { /* handled inside setYantraLayer */ };
+
+// init all layers visible
+document.querySelectorAll('.yantra-layer').forEach(function(l){ l.style.opacity='1'; });
+
+/* ── Vastu Compass ── */
+window.showVastuTip = function(e, dir, dev, deity, elem) {
+  var tip = document.getElementById('vastu-tip');
+  document.getElementById('vtt-dir').textContent = dir;
+  document.getElementById('vtt-dev').textContent = dev;
+  document.getElementById('vtt-deity').textContent = deity;
+  document.getElementById('vtt-elem').textContent = elem;
+  var compass = document.getElementById('vastu-compass');
+  var rect = compass.getBoundingClientRect();
+  tip.style.left = (e.clientX - rect.left + 12) + 'px';
+  tip.style.top = (e.clientY - rect.top - 20) + 'px';
+  tip.style.opacity = '1';
+};
+window.hideVastuTip = function() {
+  document.getElementById('vastu-tip').style.opacity = '0';
+};
+window.highlightVastuCard = function(dirId) {
+  document.querySelectorAll('.vastu-card,.vastu-center-card').forEach(function(c){ c.classList.remove('highlighted'); });
+  var card = document.getElementById('vc-' + dirId);
+  if (card) {
+    card.classList.add('highlighted');
+    card.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+};
+
+/* ── 16 Sutras ── */
 var SUTRAS = [
-  { n:1,  name:'Ekadhikena Purvena',     sans:'एकाधिकेन पूर्वेण',     meaning:'By one more than the previous',      example:'Squaring numbers ending in 5: 65² = 6×7 / 25 = 4225' },
-  { n:2,  name:'Nikhilam',               sans:'निखिलम्',               meaning:'All from 9 and last from 10',         example:'Multiply 98×97: (100-2)(100-3) = 100×95 + 2×3 = 9506' },
-  { n:3,  name:'Urdhva-Tiryagbhyam',     sans:'ऊर्ध्व-तिर्यग्भ्याम्', meaning:'Vertically and crosswise',           example:'Universal multiplication: works for any two numbers' },
-  { n:4,  name:'Paravartya Yojayet',     sans:'परावर्त्य योजयेत्',     meaning:'Transpose and apply',                example:'Division: 1234÷112 — transpose divisor digits' },
-  { n:5,  name:'Shunyam Samyasamuccaye', sans:'शून्यम् साम्यसमुच्चये', meaning:'If the sum is the same, that sum is zero', example:'Equations where combined terms equal zero' },
-  { n:6,  name:'Anurupye Shunyamanyat', sans:'आनुरूप्येण',            meaning:'If one is in ratio, the other is zero', example:'Proportional equations and ratios' },
-  { n:7,  name:'Sankalana-Vyavakalanabhyam', sans:'सङ्कलन-व्यवकलनाभ्याम्', meaning:'By addition and subtraction', example:'Solving simultaneous equations' },
-  { n:8,  name:'Puranapuranabhyam',      sans:'पूरणापूरणाभ्याम्',      meaning:'By completion or non-completion',     example:'Completing the square method' },
-  { n:9,  name:'Chalana-Kalanabhyam',    sans:'चलन-कलनाभ्याम्',       meaning:'Differential calculus — differences and similarities', example:'Factorisation and calculus operations' },
-  { n:10, name:'Yavadunam',              sans:'यावदूनम्',               meaning:'Whatever the extent of deficiency',   example:'Cubing and square roots — base method' },
-  { n:11, name:'Vyashtisamanstih',       sans:'व्यष्टिसमष्टिः',        meaning:'Part and whole',                      example:'Factoring quadratics and higher polynomials' },
-  { n:12, name:'Shesanyankena Charamena', sans:'शेषाण्यङ्केन चरमेण',  meaning:'The remainders by last digit',        example:'Straight division — last digit method' },
-  { n:13, name:'Sopaantyadvayamantyam',  sans:'सोपान्त्यद्वयमन्त्यम्', meaning:'The ultimate and twice the penultimate', example:'Certain algebraic fraction computations' },
-  { n:14, name:'Ekanyunena Purvena',     sans:'एकन्यूनेन पूर्वेण',     meaning:'By one less than the previous',       example:'Multiplication by series of 9s' },
-  { n:15, name:'Gunitasamuchyah',        sans:'गुणितसमुच्चयः',         meaning:'The product of the sum equals sum of the products', example:'Verification of multiplication results' },
-  { n:16, name:'Gunakasamuchyah',        sans:'गुणकसमुच्चयः',          meaning:'The factors of the sum equal the sum of the factors', example:'Factorisation verification — all operations' }
+  { n:1,  name:'Ekadhikena Purvena',         sans:'एकाधिकेन पूर्वेण',         meaning:'By one more than the previous',                    example:'Squaring numbers ending in 5: 65² = 6×7 / 25 = 4225' },
+  { n:2,  name:'Nikhilam',                   sans:'निखिलम्',                   meaning:'All from 9 and last from 10',                       example:'Multiply 98×97: (100-2)(100-3) = 100×95+6 = 9506' },
+  { n:3,  name:'Urdhva-Tiryagbhyam',         sans:'ऊर्ध्व-तिर्यग्भ्याम्',     meaning:'Vertically and crosswise',                          example:'Universal multiplication: works for any two numbers' },
+  { n:4,  name:'Paravartya Yojayet',         sans:'परावर्त्य योजयेत्',         meaning:'Transpose and apply',                               example:'Division: 1234÷112 — transpose divisor digits' },
+  { n:5,  name:'Shunyam Samyasamuccaye',     sans:'शून्यम् साम्यसमुच्चये',     meaning:'If the sum is the same, that sum is zero',          example:'Equations where combined terms equal zero' },
+  { n:6,  name:'Anurupye Shunyamanyat',      sans:'आनुरूप्येण',                meaning:'If one is in ratio, the other is zero',             example:'Proportional equations and ratios' },
+  { n:7,  name:'Sankalana-Vyavakalanabhyam', sans:'सङ्कलन-व्यवकलनाभ्याम्',   meaning:'By addition and subtraction',                      example:'Solving simultaneous equations by elimination' },
+  { n:8,  name:'Puranapuranabhyam',          sans:'पूरणापूरणाभ्याम्',          meaning:'By completion or non-completion',                   example:'Completing the square method for quadratics' },
+  { n:9,  name:'Chalana-Kalanabhyam',        sans:'चलन-कलनाभ्याम्',           meaning:'Differences and similarities',                      example:'Factorisation and differential calculus operations' },
+  { n:10, name:'Yavadunam',                  sans:'यावदूनम्',                   meaning:'Whatever the extent of deficiency',                 example:'Cubing and square roots — base method' },
+  { n:11, name:'Vyashtisamanstih',           sans:'व्यष्टिसमष्टिः',            meaning:'Part and whole',                                    example:'Factoring quadratics and higher polynomials' },
+  { n:12, name:'Shesanyankena Charamena',    sans:'शेषाण्यङ्केन चरमेण',       meaning:'The remainders by last digit',                      example:'Straight division — last digit method' },
+  { n:13, name:'Sopaantyadvayamantyam',      sans:'सोपान्त्यद्वयमन्त्यम्',    meaning:'The ultimate and twice the penultimate',            example:'Certain algebraic fraction computations' },
+  { n:14, name:'Ekanyunena Purvena',         sans:'एकन्यूनेन पूर्वेण',         meaning:'By one less than the previous',                    example:'Multiplication by series of nines' },
+  { n:15, name:'Gunitasamuchyah',            sans:'गुणितसमुच्चयः',             meaning:'The product of the sum equals sum of the products', example:'Verification of multiplication results' },
+  { n:16, name:'Gunakasamuchyah',            sans:'गुणकसमुच्चयः',              meaning:'The factors of the sum equal sum of the factors',  example:'Factorisation verification — all operations' }
 ];
 
 var grid = document.getElementById('sutras-grid');
@@ -580,36 +899,227 @@ if (grid) {
   }).join('');
 }
 
-/* ── Khadgamala cross-reference table ── */
-var KHADG = [
-  [1,   'Talapushpaputa',    9, 'Anima Shakti',          'Outer square — Earth gate',        'Offering — entry into sacred space'],
-  [9,   'Ardha-Chandra',     8, 'Kāmeshvarī',            '16-petal lotus — first ring',      'Desire fulfilled — Nityā Shaktis'],
-  [18,  'Nikuttaka',         7, 'Bhagamālinī',           '8-petal lotus — second ring',      'Speech goddesses — Vāgdevīs'],
-  [27,  'Sarpita',           6, 'Nityaklinnā',           '14-triangle outer field',          'Serpentine — dissolution of form'],
-  [36,  'Vivartita',         5, 'Bherunḍā',              'Outer 10-triangle field',          'Full turn — Sarvasiddhiprada'],
-  [45,  'Lata',              4, 'Vahnivāsinī',           'Inner 10-triangle field',          'Creeper — the inner Shaktis'],
-  [54,  'Gajakridita',       3, 'Mahāvajreshvarī',       '8-triangle transition zone',       'Elephant play — entering inner space'],
-  [63,  'Bhramari',          2, 'Shivadūtī',             'Primary triangle',                 'Bee spin — approaching the Bindu'],
-  [72,  'Urdhvajangha',      2, 'Tvaritā',               'Primary triangle — upper apex',    'Raised knee — approaching apex'],
-  [81,  'Nupurapada',        2, 'Kulasundarī',           'Primary triangle — right vertex',  'Anklet foot — right vertex Shakti'],
-  [90,  'Svastika',          1, 'Lalitā Parāshakti',     'Bindu approach',                   'Cross — convergence toward the point'],
-  [99,  'Lolita',            1, 'Mahāparāshakti',        'Bindu — dimensionless threshold',  'Swaying — on the edge of the point'],
-  [108, 'Urdhva-Janu',       1, 'Lalitā Mahātripurasundarī', 'Bindu — pure consciousness', 'Raised knee to sky — Bindu attained']
+/* ── Kolam Pattern Generator ── */
+var KOLAMS = {
+  1: {
+    desc: '3×3 basic Kolam — 9-dot grid with single continuous loop. Symmetry group D₄. One of the simplest Eulerian circuit patterns in traditional Tamil practice.',
+    svg: function() {
+      var dots = '';
+      for(var r=0;r<3;r++) for(var c=0;c<3;c++) dots += '<circle cx="'+(c*60+30)+'" cy="'+(r*60+30)+'" r="4" fill="rgba(197,160,89,0.7)"/>';
+      return dots + '<path d="M30,30 C30,10 90,10 90,30 C90,50 150,50 150,90 C150,130 90,130 90,150 C90,170 30,170 30,150 C30,130 -10,90 30,30" stroke="#c5a059" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M30,90 C10,90 10,30 30,30 C50,30 50,150 90,150 C110,150 110,90 90,90 C70,90 70,30 90,30 C110,30 110,90 130,90 C150,90 150,150 130,150" stroke="rgba(197,160,89,0.4)" stroke-width="1.2" fill="none" stroke-linecap="round"/>';
+    }
+  },
+  2: {
+    desc: '5×5 Neli Kolam — 25-dot grid, a classic complex pattern. Symmetry group D₄. Requires 4 separate loops that together cover all dots. A favourite for festival days in South India.',
+    svg: function() {
+      var dots = '';
+      for(var r=0;r<5;r++) for(var c=0;c<5;c++) dots += '<circle cx="'+(c*36+18)+'" cy="'+(r*36+18)+'" r="3" fill="rgba(197,160,89,0.6)"/>';
+      var path = 'M18,18 C18,4 54,4 54,18 C54,32 90,32 90,18 C90,4 126,4 126,18 C126,32 162,32 162,18 C162,4 168,10 168,18 C168,32 162,40 162,54 C162,68 168,76 168,90 C168,104 162,112 162,126 C162,140 168,148 168,162 C168,170 162,176 162,162 C162,148 126,148 126,162 C126,176 90,176 90,162 C90,148 54,148 54,162 C54,176 18,176 18,162 C18,148 4,140 4,126 C4,112 18,110 18,90 C18,68 4,50 4,18 C4,4 18,4 18,18';
+      return dots + '<path d="'+path+'" stroke="#c5a059" stroke-width="2" fill="none" stroke-linecap="round"/>';
+    }
+  },
+  3: {
+    desc: 'Puvvulu (Flower) Kolam — petal-based pattern arranged around a central point. Represents the Ashta-dala Padma (8-petal lotus). Common in Andhra Pradesh and Tamil Nadu for auspicious occasions.',
+    svg: function() {
+      var petals = '';
+      for(var i=0;i<8;i++) {
+        var angle = i * 45;
+        petals += '<ellipse cx="80" cy="80" rx="18" ry="40" stroke="#c5a059" stroke-width="1.8" fill="rgba(197,160,89,0.07)" transform="rotate('+angle+' 80 80)"/>';
+      }
+      return petals + '<circle cx="80" cy="80" r="10" fill="rgba(197,160,89,0.25)" stroke="#c5a059" stroke-width="1.5"/><circle cx="80" cy="80" r="4" fill="var(--gold)"/>';
+    }
+  },
+  4: {
+    desc: 'Ashtadala (Eight-Petal) Kolam with interlocking loop — advanced pattern combining two interlocked 4-petal loops. Single continuous Eulerian circuit. Symmetry group D₈ with 16 total symmetries.',
+    svg: function() {
+      return '<circle cx="80" cy="80" r="70" stroke="rgba(197,160,89,0.15)" stroke-width="1" fill="none"/>'
+        + '<path d="M80,10 C100,10 150,60 150,80 C150,100 100,150 80,150 C60,150 10,100 10,80 C10,60 60,10 80,10" stroke="#c5a059" stroke-width="2" fill="none"/>'
+        + '<path d="M10,80 C10,60 60,10 80,10 C100,10 150,60 150,80 C150,100 100,150 80,150 C60,150 10,100 10,80" stroke="rgba(197,160,89,0.5)" stroke-width="1.2" fill="none" transform="rotate(45 80 80)"/>'
+        + '<circle cx="80" cy="80" r="12" stroke="var(--gold)" stroke-width="1.5" fill="rgba(197,160,89,0.2)"/>'
+        + '<circle cx="80" cy="80" r="4" fill="var(--gold)"/>';
+    }
+  }
+};
+
+window.showKolam = function(n, btn) {
+  var k = KOLAMS[n];
+  if (!k) return;
+  document.getElementById('kolam-gen-svg').innerHTML = k.svg();
+  document.getElementById('kolam-desc').textContent = k.desc;
+  document.querySelectorAll('.kg-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+};
+// init
+showKolam(1, document.querySelector('.kg-btn'));
+
+/* ── Full 108-Karana Khadgamala table ── */
+var KHADG_FULL = [
+  // [karana#, karana_name, avarana, khadg_station, geometric_zone, cosmic_principle]
+  [1,'Talapushpaputa',9,'Anima Shakti','Bhupura — East gate','Entry offering; first gate opened by devotee'],
+  [2,'Vardhamanaka',9,'Laghima Shakti','Bhupura — South-East corner','Lightening of form; ascent begins'],
+  [3,'Asvakranta',9,'Mahima Shakti','Bhupura — South gate','Expansion of consciousness into space'],
+  [4,'Dola',9,'Ishitva Shakti','Bhupura — South-West corner','Swaying into the great void'],
+  [5,'Talasamphotita',9,'Vashitva Shakti','Bhupura — West gate','Clapping to awaken inner sound'],
+  [6,'Visnukranta',9,'Prakamya Shakti','Bhupura — North-West corner','Pervasion of all directions'],
+  [7,'Bhramara',9,'Bhukti Shakti','Bhupura — North gate','Bee-hum of mantra at threshold'],
+  [8,'Alata',9,'Iccha Shakti','Bhupura — North-East corner','Firebrand circle — desire ignites'],
+  [9,'Katariccha',9,'Jnana Shakti','Bhupura — inner ring','Scissors: cutting the net of illusion'],
+  [10,'Ardha-Chandra',9,'Kriya Shakti','Bhupura — guardian zone','Half-moon: liminal between outer and inner'],
+  [11,'Apaviddha',9,'Brahmi','Bhupura — Brahmi station','Piercing upward; Brahmi received'],
+  [12,'Suchi',9,'Maheshvari','Bhupura — Maheshvari station','Needle pointing to the centre'],
+  [13,'Anikutaka',9,'Kaumari','Bhupura — Kaumari station','Youth-energy entering the mandala'],
+  [14,'Ardhanikuttaka',9,'Vaishnavi','Bhupura — threshold crossing','Half-step: crossing into inner space'],
+  [15,'Katisama',8,'Kameshnvari (Nitya 1)','16-Petal — petal 1','Hips aligned — first Nitya received'],
+  [16,'Apaviddha',8,'Bhagamalini (Nitya 2)','16-Petal — petal 2','Piercing second petal of desire'],
+  [17,'Lina',8,'Nityaklinna (Nitya 3)','16-Petal — petal 3','Dissolved into the ever-wet Shakti'],
+  [18,'Nikuttaka',8,'Bherunda (Nitya 4)','16-Petal — petal 4','The terrible fire of purification'],
+  [19,'Kuncita',8,'Vahnivasini (Nitya 5)','16-Petal — petal 5','Bent — dwelling in the fire'],
+  [20,'Catura',8,'Vajreshvari (Nitya 6)','16-Petal — petal 6','Clever foot — diamond consciousness'],
+  [21,'Recita',8,'Shiva-Duti (Nitya 7)','16-Petal — petal 7','Released energy — Shiva messenger'],
+  [22,'Prerita',8,'Tvarita (Nitya 8)','16-Petal — petal 8','Propelled forward — the swift goddess'],
+  [23,'Nupura',8,'Kulasundari (Nitya 9)','16-Petal — petal 9','Anklet sound — beauty of lineage'],
+  [24,'Dolapadam',8,'Nitya (Nitya 10)','16-Petal — petal 10','Swinging foot — eternal rhythm'],
+  [25,'Vrishcika',8,'Nilapataka (Nitya 11)','16-Petal — petal 11','Scorpion: venom transforms to nectar'],
+  [26,'Kataka',8,'Vijaya (Nitya 12)','16-Petal — petal 12','Bracelet-hand — victory achieved'],
+  [27,'Catura',7,'Sarvamangala','8-Petal — Vagdevi 1','All-auspicious sound-goddess received'],
+  [28,'Bhujangatrasita',7,'Aparajita','8-Petal — Vagdevi 2','Snake-startled: the undefeated one'],
+  [29,'Urdhvajanu',7,'Jayini','8-Petal — Vagdevi 3','Raised knee — Jayini bestows victory'],
+  [30,'Nikuttaka',7,'Sarveshi','8-Petal — Vagdevi 4','Goddess of all — full reception'],
+  [31,'Ardha-Nikuttaka',7,'Kaulini','8-Petal — Vagdevi 5','Half-reception: entering Kula lineage'],
+  [32,'Katisama',7,'Ananga-Kusuma','8-Petal — Vagdevi 6','Bodiless flower — subtle body awakened'],
+  [33,'Aksipta',7,'Ananga-Mekhala','8-Petal — Vagdevi 7','Girdle of the bodiless — Kundalini belt'],
+  [34,'Talasamphotita',7,'Ananga-Madana','8-Petal — Vagdevi 8','Love of the formless — sound as Eros'],
+  [35,'Kataka-Asvakranta',6,'Sarvasanksobhini','14-Triangle — outer','All-agitating Shakti — veil broken'],
+  [36,'Vivartita',6,'Sarvavidravi','14-Triangle — south','Turned around — the great dissolving'],
+  [37,'Vinivritta',6,'Sarvakarshini','14-Triangle — west','Turned back — drawing all things inward'],
+  [38,'Parivritta',6,'Sarvahladini','14-Triangle — north','Revolved — all-delighting Shakti'],
+  [39,'Sarpita',6,'Sarvasammohini','14-Triangle — NE apex','Serpentine — great enchantress'],
+  [40,'Dandapaksha',6,'Sarvasthambhini','14-Triangle — NW apex','Pillar posture — immoveable foundation'],
+  [41,'Svastica',6,'Sarvajrimbhini','14-Triangle — SE apex','Cross/svastika — all-yawning expansion'],
+  [42,'Nikuttaka',6,'Sarvavashankari','14-Triangle — SW apex','Complete reception — the subduer of all'],
+  [43,'Nupura',6,'Sarvaranjani','14-Triangle — inner E','Anklet joy — all-delighting sound'],
+  [44,'Talasamphotita',6,'Sarvonmadini','14-Triangle — inner W','Clapping — the great intoxicating Shakti'],
+  [45,'Gajakridita',6,'Sarvaarthasadhini','14-Triangle — inner N','Elephant play — achieving all purposes'],
+  [46,'Samanasvara',6,'Sarvasampattipurani','14-Triangle — inner S','Equanimous sound — filling with all wealth'],
+  [47,'Recita',6,'Sarvamantramayi','14-Triangle — inner NE','Released — all mantras embodied'],
+  [48,'Prerita',6,'Sarvadwandwakshayankari','14-Triangle — closing','Propelled — dissolving all oppositions'],
+  [49,'Nupurapada',5,'Sarvasiddhiprada (1)','Outer 10-△ — first','Anklet-foot — first perfection received'],
+  [50,'Urdhvajangha',5,'Sarvasiddhiprada (2)','Outer 10-△ — second','Raised thigh — perfection ascending'],
+  [51,'Nikuttaka',5,'Sarvasiddhiprada (3)','Outer 10-△ — third','Completion — third perfection'],
+  [52,'Ardha-Chandra',5,'Sarvasiddhiprada (4)','Outer 10-△ — fourth','Half-moon — fourth perfection'],
+  [53,'Vivartita',5,'Sarvasiddhiprada (5)','Outer 10-△ — fifth','Turned — fifth perfection'],
+  [54,'Gajakridita',5,'Sarvasiddhiprada (6)','Outer 10-△ — MIDPOINT','Elephant play — MIDPOINT of journey; entering inner space'],
+  [55,'Sarpita',5,'Sarvasiddhiprada (7)','Outer 10-△ — seventh','Serpentine — seventh perfection'],
+  [56,'Vrishcika',5,'Sarvasiddhiprada (8)','Outer 10-△ — eighth','Scorpion — eighth perfection'],
+  [57,'Svastika',5,'Sarvasiddhiprada (9)','Outer 10-△ — ninth','Cross — ninth perfection: all directions'],
+  [58,'Lalata',5,'Sarvasiddhiprada (10)','Outer 10-△ — tenth','Forehead — tenth and final outer perfection'],
+  [59,'Lolita',4,'Sarvajnanmayi','Inner 10-△ — first','Swaying — all-knowing Shakti enters'],
+  [60,'Nupura',4,'Sarvashaktimayi','Inner 10-△ — second','Anklet — all-powerful Shakti'],
+  [61,'Kuncita',4,'Sarvaishvaryaprada','Inner 10-△ — third','Bent — all lordship bestowed'],
+  [62,'Recita',4,'Sarvajnanmayi','Inner 10-△ — fourth','Released — wisdom of all released'],
+  [63,'Dandapaksha',4,'Sarvavyadhinashini','Inner 10-△ — fifth','Pillar — destroyer of all disease'],
+  [64,'Vrishcika',4,'Sarvadhara','Inner 10-△ — sixth','Scorpion — foundation of all'],
+  [65,'Sarpita',4,'Sarvapapahara','Inner 10-△ — seventh','Serpentine — remover of all karma'],
+  [66,'Nikuttaka',4,'Sarvanandamayi','Inner 10-△ — eighth','Full reception — all-bliss Shakti'],
+  [67,'Parivritta',4,'Sarvarakshakaramayi','Inner 10-△ — ninth','Revolved — all-protecting Shakti'],
+  [68,'Urdhvajanu',4,'Sarvepsitaphalaprada','Inner 10-△ — tenth','Raised knee — bestower of all desires'],
+  [69,'Alata',3,'Vasini','8-Triangle — Vasini','Firebrand: Vasini the controller of speech'],
+  [70,'Dolapadam',3,'Kameshvari','8-Triangle — Kameshvari','Swinging: Kameshvari, goddess of love'],
+  [71,'Recita',3,'Modini','8-Triangle — Modini','Released: Modini, the delighting one'],
+  [72,'Prerita',3,'Vimala','8-Triangle — Vimala','Propelled: Vimala, the pure one'],
+  [73,'Sarpita',3,'Aruna','8-Triangle — Aruna','Serpentine: Aruna, the dawn-red goddess'],
+  [74,'Vivartita',3,'Jayini','8-Triangle — Jayini','Turned: Jayini, the victorious'],
+  [75,'Nikuttaka',3,'Sarveshi','8-Triangle — Sarveshi','Complete: Sarveshi, ruler of all'],
+  [76,'Ardha-Chandra',3,'Kaulini','8-Triangle — Kaulini','Half-moon: Kaulini of the Kula tradition'],
+  [77,'Gajakridita',2,'Kameshvari (Tripur)','Primary Triangle — left vertex','Elephant play — the Tripura Goddess of desire'],
+  [78,'Talasamphotita',2,'Vajreshvari (Tripur)','Primary Triangle — right vertex','Clapping — Tripura Goddess of lightning'],
+  [79,'Lina',2,'Bhagamalini (Tripur)','Primary Triangle — upper apex','Dissolved — Tripura Goddess of garlands'],
+  [80,'Svastika',2,'Mantrini','Primary Triangle — approaching Bindu','Cross/Svastika — Mantrini, minister of Lalita'],
+  [81,'Nupurapada',2,'Dandini','Primary Triangle — Dandini zone','Anklet-foot — Dandini, the commander'],
+  [82,'Kuncita',2,'Mahavajreshvari','Primary Triangle — inner NE','Bent posture — the great diamond goddess'],
+  [83,'Nikuttaka',2,'Shivaduti','Primary Triangle — inner NW','Complete receipt — Shiva's messenger'],
+  [84,'Urdhvajangha',2,'Tvarita','Primary Triangle — inner SE','Raised thigh — the swift one'],
+  [85,'Lolita',2,'Kulasundari','Primary Triangle — inner SW','Swaying — beauty of the Kula tradition'],
+  [86,'Recita',2,'Nitya','Primary Triangle — approaching Bindu','Released — the eternal Nitya Shakti at the threshold'],
+  [87,'Ardha-Chandra',2,'Nilapataka','Primary Triangle — final orbit','Half-moon — the blue-flagged goddess'],
+  [88,'Prerita',2,'Vijaya','Primary Triangle — edge of Bindu','Propelled — Victory; one step from the point'],
+  [89,'Vivartita',1,'Tripura Ambika','Bindu — outer orbit','Turning to face the Bindu directly'],
+  [90,'Svastika',1,'Tripura Shri','Bindu — south approach','Cross — all-auspiciousness converges'],
+  [91,'Gajakridita',1,'Tripura Malini','Bindu — west approach','Elephant play — the garlanded one'],
+  [92,'Urdhvajanu',1,'Tripura Siddha','Bindu — north approach','Raised knee — Siddha power of the point'],
+  [93,'Tandava (Sthita)',1,'Tripura Amba','Bindu — NE approach','Standing Tandava — the mother of three cities'],
+  [94,'Alata',1,'Maheshvari','Bindu — SE approach','Firebrand — the great Shiva-Shakti'],
+  [95,'Nikuttaka',1,'Mahadevi','Bindu — SW approach','Full reception — the Great Goddess'],
+  [96,'Nupura',1,'Mahalakshmi','Bindu — NW approach','Anklet sound — the Great Lakshmi of the Bindu'],
+  [97,'Lolita',1,'Mahakali','Bindu — threshold','Swaying — Mahakali at the threshold of the point'],
+  [98,'Sarpita',1,'Kulottirna','Bindu — entering','Serpentine — transcending the Kula tradition'],
+  [99,'Parivritta',1,'Bahiryaga-Krama','Bindu — circling','Revolved — ritual of the outer becomes inner'],
+  [100,'Vinivritta',1,'Antaryaga-Krama','Bindu — internal','Turned within — internal worship begins'],
+  [101,'Viksipta',1,'Para-Shakti','Bindu — Para (supreme) zone','Cast open — the Supreme Shakti unfolds'],
+  [102,'Ardha-Chandra',1,'Para-Para','Bindu — Para-Para zone','Half-moon — the Shakti beyond Para'],
+  [103,'Dolapadam',1,'Parashiva','Bindu — Parashiva threshold','Swinging foot — at the Parashiva threshold'],
+  [104,'Kuncita',1,'Anuttara','Bindu — Anuttara (the Unsurpassable)','Bent inward — the Unsurpassable Reality'],
+  [105,'Recita',1,'Akula','Bindu — beyond lineage','Released — beyond all Kula tradition'],
+  [106,'Prerita',1,'Ananda Bhairava','Bindu — bliss wave','Propelled by bliss — the bliss-Bhairava'],
+  [107,'Lina',1,'Lalita Para-Shakti','Bindu — almost merged','Dissolved — almost become the point'],
+  [108,'Urdhvajanu',1,'Lalita Mahātripurasundarī','Bindu — UNION','Raised knee to sky — BINDU ATTAINED · Karana 108 = Khadgamala Station 108 = Pure Consciousness']
 ];
 
-var tbl = document.getElementById('khadg-table');
-if (tbl) {
-  tbl.innerHTML = KHADG.map(function(r) {
-    return '<tr>'
-      + '<td>' + r[0] + '</td>'
-      + '<td>' + r[1] + '</td>'
-      + '<td style="text-align:center">' + r[2] + '</td>'
-      + '<td>' + r[3] + '</td>'
-      + '<td style="color:var(--muted);font-size:0.88rem">' + r[4] + '</td>'
-      + '<td style="color:var(--muted);font-size:0.88rem">' + r[5] + '</td>'
+// Fill table
+var tbodyEl = document.getElementById('khadg-table');
+if (tbodyEl) {
+  var HTML = '';
+  var prevAv = null;
+  KHADG_FULL.forEach(function(r, idx) {
+    var isBoundary = (prevAv !== null && r[2] !== prevAv);
+    var isHidden = idx >= 14; // show first 14 by default, rest toggleable
+    var isBindu = (r[2] === 1);
+    var isSpecial = (r[0] === 54 || r[0] === 108);
+    var rowStyle = isBindu ? 'background:rgba(197,160,89,0.04)' : '';
+    if (isSpecial) rowStyle += ';background:rgba(197,160,89,0.1)';
+    HTML += '<tr class="khadg-row av-' + r[2] + (isBoundary?' av-boundary':'') + (isHidden?' hidden-row':'') + '" style="' + rowStyle + '">'
+      + '<td class="td-num">' + r[0] + '</td>'
+      + '<td class="td-karana">' + r[1] + '</td>'
+      + '<td class="td-av">' + r[2] + '</td>'
+      + '<td class="td-station">' + r[3] + '</td>'
+      + '<td class="td-geo">' + (r[4]||'') + '</td>'
+      + '<td class="td-cosmic">' + (r[5]||'') + '</td>'
       + '</tr>';
-  }).join('');
+    prevAv = r[2];
+  });
+  tbodyEl.innerHTML = HTML;
 }
+
+/* Khadgamala filter */
+window.filterKhadg = function(av, btn) {
+  document.querySelectorAll('.kf-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.khadg-row').forEach(function(row) {
+    if (av === 'all') {
+      row.classList.remove('hidden-row');
+    } else {
+      var hasAv = row.classList.contains('av-' + av);
+      row.classList.toggle('hidden-row', !hasAv);
+    }
+  });
+  document.getElementById('show-all-btn').style.display = (av === 'all') ? 'none' : 'none';
+};
+
+var allShown = false;
+window.toggleShowAll = function() {
+  allShown = !allShown;
+  document.querySelectorAll('.khadg-row').forEach(function(row){
+    row.classList.toggle('hidden-row', !allShown);
+  });
+  document.getElementById('show-all-btn').textContent = allShown
+    ? 'Show First 14 Only ↑'
+    : 'Show All 108 Karanas ↓';
+  // reset filter buttons
+  document.querySelectorAll('.kf-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelector('.kf-btn').classList.add('active');
+};
+
+}); // end DOMContentLoaded
 </script>
 </body>
 </html>

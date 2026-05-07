@@ -88,7 +88,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 
 /* ══ SUBDOMAIN 2: VASTU ══ */
 #vastu{background:var(--cream)}
-/* Vastu Compass interactive diagram */
 .vastu-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;margin-top:40px}
 .vastu-compass-wrap{position:sticky;top:80px}
 .vastu-compass{position:relative;width:360px;max-width:100%}
@@ -127,12 +126,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 .fib-inner .s-title{color:#fff}
 .fib-inner .s-title em{color:var(--gold)}
 .fib-inner .s-intro{color:rgba(255,255,255,.65)}
-
-/* Fibonacci Spiral SVG */
 .fib-spiral-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:48px}
 .fib-spiral-svg{text-align:center}
 .fib-spiral-svg svg{max-width:340px;width:100%}
-
 .fib-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
 .fib-card{border:1px solid rgba(197,160,89,.3);padding:32px;transition:border-color .3s}
 .fib-card:hover{border-color:var(--gold)}
@@ -142,8 +138,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 .sequence-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px;align-items:center}
 .seq-num{font-family:'Playfair Display',serif;font-size:clamp(1rem,2vw,1.6rem);color:var(--gold);padding:8px 14px;border:1px solid rgba(197,160,89,.3)}
 .seq-arrow{color:rgba(197,160,89,.5);font-size:1rem}
-
-/* Chandas metre table */
 .chandas-table{width:100%;border-collapse:collapse;margin-top:28px}
 .chandas-table th{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding:10px 14px;text-align:left;background:rgba(197,160,89,.1);border-bottom:1px solid rgba(197,160,89,.3)}
 .chandas-table td{padding:10px 14px;border-bottom:1px solid rgba(197,160,89,.1);font-size:0.9rem;color:rgba(255,255,255,.7)}
@@ -160,8 +154,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 .kc-body .kc-sub{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block}
 .kc-body p{font-size:0.92rem;color:var(--muted);line-height:1.65}
 .kc-math{background:var(--cream);padding:8px 14px;font-family:'Montserrat',sans-serif;font-size:0.68rem;color:var(--navy2);margin-top:12px;display:inline-block}
-
-/* Kolam generator */
 .kolam-generator{margin-top:60px;background:#fff;border:1px solid var(--border);padding:40px}
 .kg-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy2);margin-bottom:8px}
 .kg-sub{font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:block}
@@ -184,8 +176,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;ali
 .av-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);width:36px;flex-shrink:0;line-height:1}
 .av-name{font-family:'Montserrat',sans-serif;font-size:0.64rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy2)}
 .av-detail{font-size:0.82rem;color:var(--muted);margin-top:2px}
-
-/* Full 108-Karana cross-reference table */
 .khadg-table-section{margin-top:60px}
 .khadg-table-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px}
 .khadg-table-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy2)}
@@ -316,46 +306,37 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
       <div class="yantra-explorer">
         <div class="yantra-canvas-wrap">
           <svg id="yantra-svg" width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Layer 1: Bhupura (outer square — represented by outermost circle guide) -->
             <g id="yl-1" class="yantra-layer" opacity="0.25">
               <rect x="12" y="12" width="316" height="316" stroke="#c5a059" stroke-width="1.5" fill="none"/>
               <rect x="20" y="20" width="300" height="300" stroke="#c5a059" stroke-width="0.8" fill="none"/>
             </g>
-            <!-- Layer 2: 16-petal lotus -->
             <g id="yl-2" class="yantra-layer" opacity="0.25">
               <circle cx="170" cy="170" r="148" stroke="rgba(197,160,89,0.6)" stroke-width="1" fill="none"/>
               <circle cx="170" cy="170" r="138" stroke="rgba(197,160,89,0.4)" stroke-width="1" stroke-dasharray="10 4" fill="none"/>
             </g>
-            <!-- Layer 3: 8-petal lotus -->
             <g id="yl-3" class="yantra-layer" opacity="0.25">
               <circle cx="170" cy="170" r="122" stroke="rgba(197,160,89,0.5)" stroke-width="1.2" stroke-dasharray="14 5" fill="none"/>
             </g>
-            <!-- Layer 4: 14 triangles -->
             <g id="yl-4" class="yantra-layer" opacity="0.25">
               <polygon points="170,42 285,234 55,234" stroke="#c5a059" stroke-width="1.5" fill="rgba(197,160,89,0.04)"/>
               <polygon points="170,298 285,106 55,106" stroke="rgba(197,160,89,0.8)" stroke-width="1.5" fill="rgba(197,160,89,0.04)"/>
             </g>
-            <!-- Layer 5: outer 10 triangles -->
             <g id="yl-5" class="yantra-layer" opacity="0.25">
               <polygon points="170,68 268,220 72,220" stroke="#c5a059" stroke-width="1" fill="none"/>
               <polygon points="170,272 268,120 72,120" stroke="rgba(197,160,89,0.7)" stroke-width="1" fill="none"/>
             </g>
-            <!-- Layer 6: inner 10 triangles -->
             <g id="yl-6" class="yantra-layer" opacity="0.25">
               <polygon points="170,94 252,206 88,206" stroke="#c5a059" stroke-width="1" fill="none"/>
               <polygon points="170,248 252,134 88,134" stroke="rgba(197,160,89,0.6)" stroke-width="1" fill="none"/>
             </g>
-            <!-- Layer 7: 8 triangles -->
             <g id="yl-7" class="yantra-layer" opacity="0.25">
               <polygon points="170,116 238,194 102,194" stroke="#c5a059" stroke-width="1" fill="none"/>
               <polygon points="170,226 238,148 102,148" stroke="rgba(197,160,89,0.5)" stroke-width="1" fill="none"/>
             </g>
-            <!-- Layer 8: primary triangle -->
             <g id="yl-8" class="yantra-layer" opacity="0.25">
               <polygon points="170,134 224,200 116,200" stroke="#c5a059" stroke-width="1.2" fill="rgba(197,160,89,0.06)"/>
               <polygon points="170,206 224,160 116,160" stroke="rgba(197,160,89,0.7)" stroke-width="1.2" fill="rgba(197,160,89,0.06)"/>
             </g>
-            <!-- Layer 9: Bindu -->
             <g id="yl-9" class="yantra-layer" opacity="0.25">
               <circle cx="170" cy="170" r="24" stroke="var(--gold)" stroke-width="0.5" fill="none"/>
               <circle cx="170" cy="170" r="14" stroke="var(--gold)" stroke-width="1" fill="none" opacity="0.6"/>
@@ -366,7 +347,7 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
           </svg>
         </div>
         <div class="sy-layer-controls">
-          <button class="sy-lbtn" data-layer="all" onclick="setYantraLayer('all',this)">All</button>
+          <button class="sy-lbtn active" data-layer="all" onclick="setYantraLayer('all',this)">All</button>
           <button class="sy-lbtn" data-layer="1" onclick="setYantraLayer('1',this)">① Earth</button>
           <button class="sy-lbtn" data-layer="2" onclick="setYantraLayer('2',this)">② 16 Lotus</button>
           <button class="sy-lbtn" data-layer="3" onclick="setYantraLayer('3',this)">③ 8 Lotus</button>
@@ -384,15 +365,15 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
       </div>
 
       <div class="sy-layers">
-        <div class="sy-layer" onclick="setYantraLayer('1',null);updateInfo(1)"><span class="sy-layer-num">①</span><div><div class="sy-layer-name">Bhupura</div><div class="sy-layer-desc">Earth square — outer boundary, four gates</div></div></div>
-        <div class="sy-layer" onclick="setYantraLayer('2',null);updateInfo(2)"><span class="sy-layer-num">②</span><div><div class="sy-layer-name">16-Petal Lotus</div><div class="sy-layer-desc">Fulfilment — Ashapuraka chakra</div></div></div>
-        <div class="sy-layer" onclick="setYantraLayer('3',null);updateInfo(3)"><span class="sy-layer-num">③</span><div><div class="sy-layer-name">8-Petal Lotus</div><div class="sy-layer-desc">Nourishment — Sarvasamkshobhana</div></div></div>
-        <div class="sy-layer" onclick="setYantraLayer('4',null);updateInfo(4)"><span class="sy-layer-num">④</span><div><div class="sy-layer-name">14 Triangles</div><div class="sy-layer-desc">Outer triangle enclosure — Sarvasa(ubhāgyadāyaka</div></div></div>
-        <div class="sy-layer" onclick="setYantraLayer('5',null);updateInfo(5)"><span class="sy-layer-num">⑤</span><div><div class="sy-layer-name">10 Triangles (outer)</div><div class="sy-layer-desc">Mid-level triangular field — Sarvartha(sādhaka</div></div></div>
-        <div class="sy-layer" onclick="setYantraLayer('6',null);updateInfo(6)"><span class="sy-layer-num">⑥</span><div><div class="sy-layer-name">10 Triangles (inner)</div><div class="sy-layer-desc">Inner triangular field — Sarvarakṣākara</div></div></div>
-        <div class="sy-layer" onclick="setYantraLayer('7',null);updateInfo(7)"><span class="sy-layer-num">⑦</span><div><div class="sy-layer-name">8 Triangles</div><div class="sy-layer-desc">Sarvasiddhiprada — all perfections bestowed</div></div></div>
-        <div class="sy-layer" onclick="setYantraLayer('8',null);updateInfo(8)"><span class="sy-layer-num">⑧</span><div><div class="sy-layer-name">Primary Triangle</div><div class="sy-layer-desc">Sarvanandamaya — bliss of all things</div></div></div>
-        <div class="sy-layer" onclick="setYantraLayer('9',null);updateInfo(9)"><span class="sy-layer-num">⑨</span><div><div class="sy-layer-name">Bindu · बिन्दु</div><div class="sy-layer-desc">Dimensionless point — pure consciousness</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('1',null)"><span class="sy-layer-num">①</span><div><div class="sy-layer-name">Bhupura</div><div class="sy-layer-desc">Earth square — outer boundary, four gates</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('2',null)"><span class="sy-layer-num">②</span><div><div class="sy-layer-name">16-Petal Lotus</div><div class="sy-layer-desc">Fulfilment — Ashapuraka chakra</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('3',null)"><span class="sy-layer-num">③</span><div><div class="sy-layer-name">8-Petal Lotus</div><div class="sy-layer-desc">Nourishment — Sarvasamkshobhana</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('4',null)"><span class="sy-layer-num">④</span><div><div class="sy-layer-name">14 Triangles</div><div class="sy-layer-desc">Outer triangle enclosure — Sarvasaubhāgyadāyaka</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('5',null)"><span class="sy-layer-num">⑤</span><div><div class="sy-layer-name">10 Triangles (outer)</div><div class="sy-layer-desc">Mid-level triangular field — Sarvathasādhaka</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('6',null)"><span class="sy-layer-num">⑥</span><div><div class="sy-layer-name">10 Triangles (inner)</div><div class="sy-layer-desc">Inner triangular field — Sarvarakṣākara</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('7',null)"><span class="sy-layer-num">⑦</span><div><div class="sy-layer-name">8 Triangles</div><div class="sy-layer-desc">Sarvasiddhiprada — all perfections bestowed</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('8',null)"><span class="sy-layer-num">⑧</span><div><div class="sy-layer-name">Primary Triangle</div><div class="sy-layer-desc">Sarvanandamaya — bliss of all things</div></div></div>
+        <div class="sy-layer" onclick="setYantraLayer('9',null)"><span class="sy-layer-num">⑨</span><div><div class="sy-layer-name">Bindu · बिन्दु</div><div class="sy-layer-desc">Dimensionless point — pure consciousness</div></div></div>
       </div>
     </div>
   </div>
@@ -406,30 +387,28 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
     <p class="s-intro">Vastu Shastra is the Vedic science of space — a complete system for aligning built environments with the directional energies of the cosmos. Each of the eight cardinal and intercardinal directions is governed by a specific deity, element, and quality of energy. The Vastu Purusha Mandala is a 81-square (9×9) grid encoding this cosmic plan onto every building, home, and temple.</p>
 
     <div class="vastu-layout">
-      <!-- Interactive Vastu Compass -->
+      <!-- Interactive Vastu Compass — FIX 4+5: NW segment corrected, position:relative added -->
       <div class="vastu-compass-wrap">
-        <div class="vastu-compass" id="vastu-compass">
+        <div class="vastu-compass" id="vastu-compass" style="position:relative">
           <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer circle -->
             <circle cx="180" cy="180" r="172" fill="var(--navy2)" stroke="rgba(197,160,89,0.4)" stroke-width="1.5"/>
             <circle cx="180" cy="180" r="120" fill="rgba(15,34,64,0.5)" stroke="rgba(197,160,89,0.25)" stroke-width="1"/>
-            <!-- Direction segments - clickable -->
             <!-- N -->
-            <path d="M180,180 L155,60 A124,124 0 0,1 205,60 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" data-dir="North" data-deity="Kubera" data-elem="Water · Prosperity &amp; wealth" style="cursor:pointer" onmouseenter="showVastuTip(event,'North','UTTARA','Kubera · God of Wealth','Water element · Prosperity, abundance, income')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('north')"/>
+            <path d="M180,180 L155,56 A124,124 0 0,1 205,56 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" data-dir="North" style="cursor:pointer" onmouseenter="showVastuTip(event,'North','UTTARA','Kubera · God of Wealth','Water element · Prosperity, abundance, income')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('north')"/>
             <!-- NE -->
-            <path d="M180,180 L260,100 A124,124 0 0,0 205,60 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'North-East','ISHANYA','Ishana · Shiva','Water+Ether · Wisdom &amp; prayer')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('north-east')"/>
+            <path d="M180,180 L205,56 A124,124 0 0,1 304,205 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'North-East','ISHANYA','Ishana · Shiva','Water+Ether · Wisdom &amp; prayer')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('north-east')"/>
             <!-- E -->
-            <path d="M180,180 L300,155 A124,124 0 0,0 260,100 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'East','PURVA','Indra · King of Gods','Air element · Health &amp; success')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('east')"/>
+            <path d="M180,180 L304,155 A124,124 0 0,1 304,205 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'East','PURVA','Indra · King of Gods','Air element · Health &amp; success')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('east')"/>
             <!-- SE -->
-            <path d="M180,180 L260,260 A124,124 0 0,0 300,155 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'South-East','AGNEYA','Agni · Fire God','Fire element · Energy &amp; vitality')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('south-east')"/>
+            <path d="M180,180 L304,155 A124,124 0 0,1 205,304 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'South-East','AGNEYA','Agni · Fire God','Fire element · Energy &amp; vitality')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('south-east')"/>
             <!-- S -->
-            <path d="M180,180 L155,300 A124,124 0 0,0 205,300 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'South','DAKSHINA','Yama · Lord of Dharma','Earth element · Stability &amp; career')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('south')"/>
+            <path d="M180,180 L155,304 A124,124 0 0,1 205,304 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'South','DAKSHINA','Yama · Lord of Dharma','Earth element · Stability &amp; career')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('south')"/>
             <!-- SW -->
-            <path d="M180,180 L100,260 A124,124 0 0,0 155,300 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'South-West','NAIRITI','Nirriti · Dissolution','Earth+Water · Relationships')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('south-west')"/>
+            <path d="M180,180 L56,205 A124,124 0 0,1 155,304 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'South-West','NAIRITI','Nirriti · Dissolution','Earth+Water · Relationships')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('south-west')"/>
             <!-- W -->
-            <path d="M180,180 L60,155 A124,124 0 0,0 100,260 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'West','PASHCHIMA','Varuna · Water God','Water element · Gains &amp; creativity')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('west')"/>
-            <!-- NW -->
-            <path d="M180,180 L155,60 A124,124 0 0,0 60,155 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'North-West','VAYAVYA','Vayu · Wind God','Air element · Support &amp; banking')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('north-west')"/>
+            <path d="M180,180 L56,155 A124,124 0 0,1 56,205 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'West','PASHCHIMA','Varuna · Water God','Water element · Gains &amp; creativity')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('west')"/>
+            <!-- NW — FIX 4: corrected path from L60,155 sweeping to L155,60 -->
+            <path d="M180,180 L56,155 A124,124 0 0,1 155,56 Z" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.2)" stroke-width="1" class="vastu-seg" style="cursor:pointer" onmouseenter="showVastuTip(event,'North-West','VAYAVYA','Vayu · Wind God','Air element · Support &amp; banking')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('north-west')"/>
             <!-- Centre -->
             <circle cx="180" cy="180" r="36" fill="rgba(197,160,89,0.15)" stroke="var(--gold)" stroke-width="1.5" style="cursor:pointer" onmouseenter="showVastuTip(event,'Centre','BRAHMASTHANA','Brahma · The Creator','All elements · Sacred unobstructed centre')" onmouseleave="hideVastuTip()" onclick="highlightVastuCard('centre')"/>
             <!-- Direction labels -->
@@ -441,15 +420,14 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
             <text x="292" y="298" fill="rgba(197,160,89,0.7)" font-size="7" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1">SE</text>
             <text x="68" y="298" fill="rgba(197,160,89,0.7)" font-size="7" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1">SW</text>
             <text x="68" y="72" fill="rgba(197,160,89,0.7)" font-size="7" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1">NW</text>
-            <!-- Centre label -->
             <text x="180" y="177" fill="var(--gold)" font-size="7" text-anchor="middle" font-family="Montserrat,sans-serif" letter-spacing="1" font-weight="700">BRAHMA</text>
             <text x="180" y="187" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle" font-family="Montserrat,sans-serif">STHANA</text>
-            <!-- Cross lines -->
             <line x1="180" y1="56" x2="180" y2="124" stroke="rgba(197,160,89,0.2)" stroke-width="0.5"/>
             <line x1="180" y1="236" x2="180" y2="304" stroke="rgba(197,160,89,0.2)" stroke-width="0.5"/>
             <line x1="56" y1="180" x2="124" y2="180" stroke="rgba(197,160,89,0.2)" stroke-width="0.5"/>
             <line x1="236" y1="180" x2="304" y2="180" stroke="rgba(197,160,89,0.2)" stroke-width="0.5"/>
           </svg>
+          <!-- FIX 5: tooltip positioned inside the position:relative compass div -->
           <div class="vc-tooltip" id="vastu-tip">
             <span class="vct-dir" id="vtt-dir"></span>
             <span class="vct-deity" id="vtt-dev"></span>
@@ -499,32 +477,21 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
     <p class="s-intro" style="color:rgba(255,255,255,.65)">The Fibonacci sequence — 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144... — was documented by the Vedic mathematician Virahanka (c. 700 CE), Gopala (c. 1135 CE), and Hemachandra (c. 1150 CE) in the context of Sanskrit prosody (Chandas). Pingala's Chandashaastra (c. 300 BCE) contains the earliest known description of what we now call the Fibonacci sequence, embedded in the study of poetic metres.</p>
 
     <div class="fib-spiral-wrap">
-      <!-- Fibonacci Spiral SVG -->
       <div class="fib-spiral-svg">
         <svg width="340" height="280" viewBox="0 0 340 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Grid squares proportional to Fibonacci: 1,1,2,3,5,8,13 -->
-          <!-- Scale: 1 unit = 14px, base at centre-ish -->
-          <!-- 13 square: top-left large -->
           <rect x="10" y="10" width="182" height="182" fill="rgba(197,160,89,0.04)" stroke="rgba(197,160,89,0.35)" stroke-width="1"/>
           <text x="62" y="105" fill="rgba(197,160,89,0.4)" font-size="20" font-family="Playfair Display,serif" text-anchor="middle">13</text>
-          <!-- 8 square: to the right of 13 -->
           <rect x="192" y="70" width="112" height="112" fill="rgba(197,160,89,0.06)" stroke="rgba(197,160,89,0.35)" stroke-width="1"/>
           <text x="248" y="130" fill="rgba(197,160,89,0.4)" font-size="14" font-family="Playfair Display,serif" text-anchor="middle">8</text>
-          <!-- 5 square: below 8 -->
           <rect x="192" y="182" width="70" height="70" fill="rgba(197,160,89,0.08)" stroke="rgba(197,160,89,0.4)" stroke-width="1"/>
           <text x="227" y="220" fill="rgba(197,160,89,0.5)" font-size="11" font-family="Playfair Display,serif" text-anchor="middle">5</text>
-          <!-- 3 square: left of 5 -->
           <rect x="150" y="224" width="42" height="42" fill="rgba(197,160,89,0.1)" stroke="rgba(197,160,89,0.45)" stroke-width="1"/>
           <text x="171" y="248" fill="rgba(197,160,89,0.5)" font-size="9" font-family="Playfair Display,serif" text-anchor="middle">3</text>
-          <!-- 2 square: above 3 -->
           <rect x="150" y="196" width="28" height="28" fill="rgba(197,160,89,0.12)" stroke="rgba(197,160,89,0.5)" stroke-width="1"/>
           <text x="164" y="213" fill="rgba(197,160,89,0.6)" font-size="8" font-family="Playfair Display,serif" text-anchor="middle">2</text>
-          <!-- 1+1 squares -->
           <rect x="150" y="182" width="14" height="14" fill="rgba(197,160,89,0.18)" stroke="rgba(197,160,89,0.6)" stroke-width="1"/>
           <rect x="164" y="182" width="14" height="14" fill="rgba(197,160,89,0.22)" stroke="rgba(197,160,89,0.7)" stroke-width="1"/>
-          <!-- Spiral arc -->
           <path d="M 164,182 Q 192,182 192,210 Q 192,252 150,252 Q 94,252 94,196 Q 94,70 192,70 Q 304,70 304,182" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <!-- φ annotation -->
           <text x="260" y="58" fill="var(--gold)" font-size="13" font-family="Playfair Display,serif" font-style="italic">φ = 1.618...</text>
           <line x1="248" y1="64" x2="248" y2="70" stroke="rgba(197,160,89,0.5)" stroke-width="1"/>
         </svg>
@@ -540,21 +507,20 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
           <span class="seq-num">13</span><span class="seq-arrow">→</span>
           <span class="seq-num" style="background:rgba(197,160,89,.15)">φ</span>
         </div>
-        <!-- Chandas metre table -->
         <p style="font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-l);margin-bottom:10px">Chandas — Fibonacci in Sanskrit Metre</p>
         <table class="chandas-table">
           <thead><tr><th>Syllables (n)</th><th>Metre Name</th><th>Valid patterns</th><th>Vedic name</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>Ukta</td><td class="td-fib">1</td><td>—</td></tr>
-            <tr><td>2</td><td>Atyukta</td><td class="td-fib">2</td><td>Gāyatrī basis</td></tr>
-            <tr><td>3</td><td>Madhya</td><td class="td-fib">3</td><td>—</td></tr>
-            <tr><td>4</td><td>Pratiṣṭhā</td><td class="td-fib">5</td><td>Anuṣṭubh basis</td></tr>
-            <tr><td>5</td><td>Supratiṣṭhā</td><td class="td-fib">8</td><td>—</td></tr>
-            <tr><td>6</td><td>Gāyatrī</td><td class="td-fib">13</td><td>Gāyatrī mantra</td></tr>
-            <tr><td>7</td><td>Uṣṇik</td><td class="td-fib">21</td><td>—</td></tr>
-            <tr><td>8</td><td>Anuṣṭubh</td><td class="td-fib">34</td><td>Epic metre (Mahābhārata)</td></tr>
-            <tr><td>9</td><td>Bṛhatī</td><td class="td-fib">55</td><td>—</td></tr>
-            <tr><td>10</td><td>Paṅkti</td><td class="td-fib">89</td><td>—</td></tr>
+            <tr><td>1</td><td>Ukta</td><td>1</td><td>—</td></tr>
+            <tr><td>2</td><td>Atyukta</td><td>2</td><td>Gāyatrī basis</td></tr>
+            <tr><td>3</td><td>Madhya</td><td>3</td><td>—</td></tr>
+            <tr><td>4</td><td>Pratiṣṭhā</td><td>5</td><td>Anuṣṭubh basis</td></tr>
+            <tr><td>5</td><td>Supratiṣṭhā</td><td>8</td><td>—</td></tr>
+            <tr><td>6</td><td>Gāyatrī</td><td>13</td><td>Gāyatrī mantra</td></tr>
+            <tr><td>7</td><td>Uṣṇik</td><td>21</td><td>—</td></tr>
+            <tr><td>8</td><td>Anuṣṭubh</td><td>34</td><td>Epic metre (Mahābhārata)</td></tr>
+            <tr><td>9</td><td>Bṛhatī</td><td>55</td><td>—</td></tr>
+            <tr><td>10</td><td>Paṅkti</td><td>89</td><td>—</td></tr>
           </tbody>
         </table>
       </div>
@@ -670,7 +636,6 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
       </div>
     </div>
 
-    <!-- Kolam Pattern Generator (Phase 2) -->
     <div class="kolam-generator">
       <h3 class="kg-title">Kolam Pattern Explorer</h3>
       <span class="kg-sub">Phase 2 · Interactive Eulerian path patterns</span>
@@ -681,8 +646,7 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
         <button class="kg-btn" onclick="showKolam(4,this)">Ashtadala</button>
       </div>
       <div class="kg-canvas">
-        <svg id="kolam-gen-svg" width="280" height="280" viewBox="-20 -20 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        </svg>
+        <svg id="kolam-gen-svg" width="280" height="280" viewBox="-20 -20 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
       </div>
       <p class="kg-desc" id="kolam-desc">3×3 basic Kolam — 9-dot grid with single continuous loop. Symmetry group D₄. One of the simplest Eulerian circuit patterns in traditional Tamil practice.</p>
     </div>
@@ -717,7 +681,6 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
       </div>
     </div>
 
-    <!-- Full 108-row Khadgamala table (Phase 2) -->
     <div class="khadg-table-section">
       <div class="khadg-table-header">
         <h3 class="khadg-table-title">Khadgamala × 108 Karanas — Complete Cross-Reference</h3>
@@ -754,18 +717,15 @@ footer{background:var(--navy);padding:48px 40px;text-align:center;border-top:1px
   </div>
 </section>
 
-<!-- CLOSING QUOTE -->
 <div class="gold-quote">
   <p>"The universe geometrises itself into consciousness. The Sri Yantra is that geometry. The Vedic mathematician knows it by number, the Vastu architect by direction, the Kolam artist by line, and the Karana dancer by the movement of the body in space. All four are saying the same thing."</p>
   <cite>— Naredla Rama Chandra · Grand Synthesis · Domain 1 · Phase 2</cite>
 </div>
 
-<!-- Phase 2 strip -->
 <div class="phase2-strip">
   <p>Domain 1 of 9 complete · <span>Phase 2 active</span> · Next: Domain 2 — Natya Shastra Architecture · <span>natyashastra.culturalmusings.com</span></p>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-om">ॐ</span>
   <div class="footer-links">
@@ -802,7 +762,11 @@ window.addEventListener('scroll', function () {
   pills.forEach(function(p, i) { p.classList.toggle('active', i === current); });
 }, { passive: true });
 
-/* ── Sri Yantra Layer Explorer ── */
+/* ══════════════════════════════════════════════════════════
+   FIX 1: Sri Yantra Layer Explorer
+   — Side-list items now sync the top button row highlights
+   — btn=null path finds matching .sy-lbtn by data-layer attr
+   ══════════════════════════════════════════════════════════ */
 var YANTRA_INFO = {
   'all': { name: 'All Nine Avaranas', desc: 'Click a layer button to isolate and explore each enclosure' },
   '1': { name: 'Āvaraṇa 9 — Bhupura', desc: 'The outer earth square with four gates (dvāras). Governs: stability, physical foundation, earth element.' },
@@ -825,9 +789,14 @@ window.setYantraLayer = function(layer, btn) {
       l.style.opacity = (i + 1 === parseInt(layer)) ? '1' : '0.08';
     });
   }
+  /* FIX 1: always clear all top buttons, then activate the right one
+     whether the call came from a top button (btn provided) or a side-list item (btn=null) */
+  document.querySelectorAll('.sy-lbtn').forEach(function(b){ b.classList.remove('active'); });
   if (btn) {
-    document.querySelectorAll('.sy-lbtn').forEach(function(b){ b.classList.remove('active'); });
     btn.classList.add('active');
+  } else {
+    var matchBtn = document.querySelector('.sy-lbtn[data-layer="' + layer + '"]');
+    if (matchBtn) matchBtn.classList.add('active');
   }
   var info = YANTRA_INFO[layer] || YANTRA_INFO['all'];
   document.querySelector('#yantra-info .sli-name').textContent = info.name;
@@ -836,12 +805,15 @@ window.setYantraLayer = function(layer, btn) {
     l.classList.toggle('active-layer', layer !== 'all' && i + 1 === parseInt(layer));
   });
 };
-window.updateInfo = function(n) { /* handled inside setYantraLayer */ };
 
-// init all layers visible
+// init all layers visible, "All" button already has .active in HTML
 document.querySelectorAll('.yantra-layer').forEach(function(l){ l.style.opacity='1'; });
 
-/* ── Vastu Compass ── */
+/* ══════════════════════════════════════════════════════════
+   FIX 4+5: Vastu Compass tooltip positioning
+   — compass div has position:relative (set in HTML)
+   — tooltip coordinates relative to compass div
+   ══════════════════════════════════════════════════════════ */
 window.showVastuTip = function(e, dir, dev, deity, elem) {
   var tip = document.getElementById('vastu-tip');
   document.getElementById('vtt-dir').textContent = dir;
@@ -850,8 +822,11 @@ window.showVastuTip = function(e, dir, dev, deity, elem) {
   document.getElementById('vtt-elem').textContent = elem;
   var compass = document.getElementById('vastu-compass');
   var rect = compass.getBoundingClientRect();
-  tip.style.left = (e.clientX - rect.left + 12) + 'px';
-  tip.style.top = (e.clientY - rect.top - 20) + 'px';
+  var x = e.clientX - rect.left + 12;
+  var y = e.clientY - rect.top - 20;
+  // keep tooltip within compass bounds
+  tip.style.left = Math.min(x, rect.width - 210) + 'px';
+  tip.style.top = Math.max(0, y) + 'px';
   tip.style.opacity = '1';
 };
 window.hideVastuTip = function() {
@@ -934,7 +909,7 @@ var KOLAMS = {
     svg: function() {
       return '<circle cx="80" cy="80" r="70" stroke="rgba(197,160,89,0.15)" stroke-width="1" fill="none"/>'
         + '<path d="M80,10 C100,10 150,60 150,80 C150,100 100,150 80,150 C60,150 10,100 10,80 C10,60 60,10 80,10" stroke="#c5a059" stroke-width="2" fill="none"/>'
-        + '<path d="M10,80 C10,60 60,10 80,10 C100,10 150,60 150,80 C150,100 100,150 80,150 C60,150 10,100 10,80" stroke="rgba(197,160,89,0.5)" stroke-width="1.2" fill="none" transform="rotate(45 80 80)"/>'
+        + '<path d="M80,10 C100,10 150,60 150,80 C150,100 100,150 80,150 C60,150 10,100 10,80 C10,60 60,10 80,10" stroke="rgba(197,160,89,0.5)" stroke-width="1.2" fill="none" transform="rotate(45 80 80)"/>'
         + '<circle cx="80" cy="80" r="12" stroke="var(--gold)" stroke-width="1.5" fill="rgba(197,160,89,0.2)"/>'
         + '<circle cx="80" cy="80" r="4" fill="var(--gold)"/>';
     }
@@ -949,12 +924,12 @@ window.showKolam = function(n, btn) {
   document.querySelectorAll('.kg-btn').forEach(function(b){ b.classList.remove('active'); });
   btn.classList.add('active');
 };
-// init
 showKolam(1, document.querySelector('.kg-btn'));
 
-/* ── Full 108-Karana Khadgamala table ── */
+/* ══════════════════════════════════════════════════════════
+   KHADGAMALA — Full 108-row table
+   ══════════════════════════════════════════════════════════ */
 var KHADG_FULL = [
-  // [karana#, karana_name, avarana, khadg_station, geometric_zone, cosmic_principle]
   [1,'Talapushpaputa',9,'Anima Shakti','Bhupura — East gate','Entry offering; first gate opened by devotee'],
   [2,'Vardhamanaka',9,'Laghima Shakti','Bhupura — South-East corner','Lightening of form; ascent begins'],
   [3,'Asvakranta',9,'Mahima Shakti','Bhupura — South gate','Expansion of consciousness into space'],
@@ -1037,7 +1012,7 @@ var KHADG_FULL = [
   [80,'Svastika',2,'Mantrini','Primary Triangle — approaching Bindu','Cross/Svastika — Mantrini, minister of Lalita'],
   [81,'Nupurapada',2,'Dandini','Primary Triangle — Dandini zone','Anklet-foot — Dandini, the commander'],
   [82,'Kuncita',2,'Mahavajreshvari','Primary Triangle — inner NE','Bent posture — the great diamond goddess'],
-  [83,'Nikuttaka',2,'Shivaduti','Primary Triangle — inner NW','Complete receipt — Shiva's messenger'],
+  [83,'Nikuttaka',2,'Shivaduti','Primary Triangle — inner NW','Complete receipt — Shiva\'s messenger'],
   [84,'Urdhvajangha',2,'Tvarita','Primary Triangle — inner SE','Raised thigh — the swift one'],
   [85,'Lolita',2,'Kulasundari','Primary Triangle — inner SW','Swaying — beauty of the Kula tradition'],
   [86,'Recita',2,'Nitya','Primary Triangle — approaching Bindu','Released — the eternal Nitya Shakti at the threshold'],
@@ -1065,18 +1040,17 @@ var KHADG_FULL = [
   [108,'Urdhvajanu',1,'Lalita Mahātripurasundarī','Bindu — UNION','Raised knee to sky — BINDU ATTAINED · Karana 108 = Khadgamala Station 108 = Pure Consciousness']
 ];
 
-// Fill table
 var tbodyEl = document.getElementById('khadg-table');
 if (tbodyEl) {
   var HTML = '';
   var prevAv = null;
   KHADG_FULL.forEach(function(r, idx) {
     var isBoundary = (prevAv !== null && r[2] !== prevAv);
-    var isHidden = idx >= 14; // show first 14 by default, rest toggleable
+    var isHidden = idx >= 14;
     var isBindu = (r[2] === 1);
     var isSpecial = (r[0] === 54 || r[0] === 108);
     var rowStyle = isBindu ? 'background:rgba(197,160,89,0.04)' : '';
-    if (isSpecial) rowStyle += ';background:rgba(197,160,89,0.1)';
+    if (isSpecial) rowStyle = 'background:rgba(197,160,89,0.1)';
     HTML += '<tr class="khadg-row av-' + r[2] + (isBoundary?' av-boundary':'') + (isHidden?' hidden-row':'') + '" style="' + rowStyle + '">'
       + '<td class="td-num">' + r[0] + '</td>'
       + '<td class="td-karana">' + r[1] + '</td>'
@@ -1090,31 +1064,63 @@ if (tbodyEl) {
   tbodyEl.innerHTML = HTML;
 }
 
-/* Khadgamala filter */
+/* ══════════════════════════════════════════════════════════
+   FIX 2: filterKhadg — now correctly unhides ALL rows
+   for the selected avarana (not just the first 14)
+   FIX 3: show-all-btn display logic corrected
+   ══════════════════════════════════════════════════════════ */
+var allShown = false;
+
 window.filterKhadg = function(av, btn) {
   document.querySelectorAll('.kf-btn').forEach(function(b){ b.classList.remove('active'); });
   btn.classList.add('active');
+  allShown = true; // any filtered view is considered "fully expanded" within that scope
   document.querySelectorAll('.khadg-row').forEach(function(row) {
     if (av === 'all') {
+      // show everything
       row.classList.remove('hidden-row');
     } else {
-      var hasAv = row.classList.contains('av-' + av);
-      row.classList.toggle('hidden-row', !hasAv);
+      // FIX 2: explicit add/remove instead of toggle, so hidden-by-default rows are unhidden
+      if (row.classList.contains('av-' + av)) {
+        row.classList.remove('hidden-row');
+      } else {
+        row.classList.add('hidden-row');
+      }
     }
   });
-  document.getElementById('show-all-btn').style.display = (av === 'all') ? 'none' : 'none';
+  var showBtn = document.getElementById('show-all-btn');
+  if (av === 'all') {
+    // FIX 3: button is visible and shows correct label when viewing all
+    showBtn.textContent = 'Show First 14 Only \u2191';
+    showBtn.style.display = 'block';
+  } else {
+    // hide the show-all button when a specific avarana filter is active
+    showBtn.style.display = 'none';
+  }
 };
 
-var allShown = false;
+/* ══════════════════════════════════════════════════════════
+   FIX 3: toggleShowAll — collapse correctly re-hides rows
+   beyond the first 14 (previously hid ALL rows)
+   ══════════════════════════════════════════════════════════ */
 window.toggleShowAll = function() {
   allShown = !allShown;
-  document.querySelectorAll('.khadg-row').forEach(function(row){
-    row.classList.toggle('hidden-row', !allShown);
+  document.querySelectorAll('.khadg-row').forEach(function(row, idx) {
+    if (allShown) {
+      row.classList.remove('hidden-row');
+    } else {
+      // FIX 3: restore the "first 14 only" default state on collapse
+      if (idx >= 14) {
+        row.classList.add('hidden-row');
+      } else {
+        row.classList.remove('hidden-row');
+      }
+    }
   });
   document.getElementById('show-all-btn').textContent = allShown
-    ? 'Show First 14 Only ↑'
-    : 'Show All 108 Karanas ↓';
-  // reset filter buttons
+    ? 'Show First 14 Only \u2191'
+    : 'Show All 108 Karanas \u2193';
+  // reset filter buttons to "All 108" active
   document.querySelectorAll('.kf-btn').forEach(function(b){ b.classList.remove('active'); });
   document.querySelector('.kf-btn').classList.add('active');
 };
